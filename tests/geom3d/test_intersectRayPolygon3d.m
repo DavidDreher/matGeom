@@ -22,13 +22,13 @@ function testTriangle(testCase) %#ok<*DEFNU>
 pts3d = [3 0 0; 0 6 0;0 0 9];
 line1 = [0 0 0 1 2 3];
 
-inter = intersectRayPolygon3d(line1, pts3d);
+inter = matGeom.geom3d.intersectRayPolygon3d(line1, pts3d);
 exp = [1 2 3];
 testCase.assertEqual(exp, inter);
 
 line2 = [10 0 0 1 2 3];
 
-[inter, inside] = intersectRayPolygon3d(line2, pts3d); %#ok<ASGLU>
+[inter, inside] = matGeom.geom3d.intersectRayPolygon3d(line2, pts3d); %#ok<ASGLU>
 testCase.assertFalse(inside);
 
 
@@ -37,7 +37,7 @@ function testReverseTriangle(testCase)
 pts3d = [3 0 0; 0 6 0;0 0 9];
 line1 = [0 0 0 1 2 3];
 
-inter = intersectRayPolygon3d(line1, pts3d);
+inter = matGeom.geom3d.intersectRayPolygon3d(line1, pts3d);
 exp = [1 2 3];
 testCase.assertEqual(exp, inter);
 
@@ -47,7 +47,7 @@ function testLineArray(testCase)
 pts3d = [3 0 0;0 0 9; 0 6 0];
 lines = [0 0 0 3 6 9 ; 10 0 0 3 6 9; 3 6 9 3 6 9];
 
-[inters, inside] = intersectRayPolygon3d(lines, pts3d);
+[inters, inside] = matGeom.geom3d.intersectRayPolygon3d(lines, pts3d);
 testCase.assertEqual(3, size(inters, 1));
 testCase.assertEqual([true;false;false], inside);
 

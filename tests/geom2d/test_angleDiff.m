@@ -21,14 +21,14 @@ function test_Simple(testCase) %#ok<*DEFNU>
 % simple tests
 
 
-dif = angleDiff(0, pi/2);
+dif = matGeom.geom2d.angleDiff(0, pi/2);
 testCase.assertEqual(pi/2, dif, 'AbsTol', .01);
 
-dif = angleDiff(pi/2, 0);
+dif = matGeom.geom2d.angleDiff(pi/2, 0);
 testCase.assertEqual(-pi/2, dif, 'AbsTol', .01);
 
-dif = angleDiff(0, 3*pi/2);
+dif = matGeom.geom2d.angleDiff(0, 3*pi/2);
 testCase.assertEqual(-pi/2, dif, 'AbsTol', .01);
 
-dif = angleDiff(3*pi/2, 0);
+dif = matGeom.geom2d.angleDiff(3*pi/2, 0);
 testCase.assertEqual(pi/2, dif, 'AbsTol', .01);

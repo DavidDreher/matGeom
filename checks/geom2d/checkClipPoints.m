@@ -23,12 +23,12 @@ axis([-50 150 -50 150]);
 hold on;
 
 % draw all points
-drawPoint(points, 'b+');
+matGeom.geom2d.drawPoint(points, 'b+');
 
 % clip points
 box = [0 100 0 100];
-clipped = clipPoints(points, box);
+clipped = matGeom.geom2d.clipPoints(points, box);
 
 % draw clipped points
-drawPoint(clipped, 'ko');
-drawBox(box);
+matGeom.geom2d.drawPoint(clipped, 'ko');
+matGeom.geom2d.drawBox(box);

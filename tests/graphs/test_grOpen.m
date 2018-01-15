@@ -22,7 +22,7 @@ function testSimpleGraph(testCase) %#ok<*DEFNU>
 
 [nodes, edges, values] = createTestGraph01(); %#ok<ASGLU>
 
-valClo = grOpen(edges, values);
+valClo = matGeom.graphs.grOpen(edges, values);
 exp = [20;10;50;50;50;20;30;30];
 testCase.assertEqual(exp, valClo);
 

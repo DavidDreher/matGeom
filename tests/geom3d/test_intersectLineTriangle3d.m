@@ -23,7 +23,7 @@ p0 = [1 1 1];
 dir = [1 0 0];
 tri = [2 0 0;2 5 0;2 0 5];
 
-inter = intersectLineTriangle3d([p0 dir], tri);
+inter = matGeom.geom3d.intersectLineTriangle3d([p0 dir], tri);
 testCase.assertEqual([2 1 1], inter);
 
 function testInlineTriangle(testCase)
@@ -32,7 +32,7 @@ p0 = [1 1 1];
 dir = [1 0 0];
 tri = [2 0 0 2 5 0 2 0 5];
 
-inter = intersectLineTriangle3d([p0 dir], tri);
+inter = matGeom.geom3d.intersectLineTriangle3d([p0 dir], tri);
 testCase.assertEqual([2 1 1], inter);
 
 
@@ -42,7 +42,7 @@ p0 = [1 1 1];
 dir = [0 1 0];
 tri = [0 2 0;5 2 0;0 2 5];
 
-inter = intersectLineTriangle3d([p0 dir], tri);
+inter = matGeom.geom3d.intersectLineTriangle3d([p0 dir], tri);
 testCase.assertEqual([1 2 1], inter);
 
 
@@ -52,7 +52,7 @@ p0 = [1 1 1];
 dir = [0 0 1];
 tri = [0 0 2;5 0 2;0 5 2];
 
-inter = intersectLineTriangle3d([p0 dir], tri);
+inter = matGeom.geom3d.intersectLineTriangle3d([p0 dir], tri);
 testCase.assertEqual([1 1 2], inter);
 
 

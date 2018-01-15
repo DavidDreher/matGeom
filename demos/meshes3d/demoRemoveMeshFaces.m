@@ -16,45 +16,45 @@
 
 %% Initialisations
 
-[vertices, faces] = createSoccerBall;
+[vertices, faces] = matGeom.meshes3d.createSoccerBall;
 m.vertices=vertices;
-faces = triangulateFaces(faces);
+faces = matGeom.meshes3d.triangulateFaces(faces);
 m.faces=faces;
 fLI = false(length(faces),1);
 rmFI=round(linspace(1,length(faces),10));
 fLI(rmFI)=true;
 
-faceCents = faceCentroids(vertices, faces);
+faceCents = matGeom.meshes3d.faceCentroids(vertices, faces);
 
 %% 
-[vertices2, faces2] = removeMeshFaces(vertices, faces, fLI);
-assert(isequal(faceCentroids(vertices, faces(~fLI,:)),faceCentroids(vertices2, faces2)))
+[vertices2, faces2] = matGeom.meshes3d.removeMeshFaces(vertices, faces, fLI);
+assert(isequal(matGeom.meshes3d.faceCentroids(vertices, faces(~fLI,:)),matGeom.meshes3d.faceCentroids(vertices2, faces2)))
 
 figure('color','w')
-drawMesh(vertices, faces, 'faceColor', 'none', 'faceAlpha', .2);
-drawMesh(vertices2, faces2, 'faceAlpha', .7);
+matGeom.meshes3d.drawMesh(vertices, faces, 'faceColor', 'none', 'faceAlpha', .2);
+matGeom.meshes3d.drawMesh(vertices2, faces2, 'faceAlpha', .7);
 text(faceCents(fLI,1),faceCents(fLI,2),faceCents(fLI,3),num2str(rmFI'))
 view(3)
 axis equal
 
 %% 
-[m2] = removeMeshFaces(vertices, faces, fLI);
-assert(isequal(faceCentroids(vertices, faces(~fLI,:)),faceCentroids(m2.vertices, m2.faces)))
+[m2] = matGeom.meshes3d.removeMeshFaces(vertices, faces, fLI);
+assert(isequal(matGeom.meshes3d.faceCentroids(vertices, faces(~fLI,:)),matGeom.meshes3d.faceCentroids(m2.vertices, m2.faces)))
 
 figure('color','w')
-drawMesh(vertices, faces, 'faceColor', 'none', 'faceAlpha', .2);
-drawMesh(m2.vertices, m2.faces, 'faceAlpha', .7);
+matGeom.meshes3d.drawMesh(vertices, faces, 'faceColor', 'none', 'faceAlpha', .2);
+matGeom.meshes3d.drawMesh(m2.vertices, m2.faces, 'faceAlpha', .7);
 text(faceCents(fLI,1),faceCents(fLI,2),faceCents(fLI,3),num2str(rmFI'))
 view(3)
 axis equal
 
 %%
-[m2] = removeMeshFaces(m, fLI);
-assert(isequal(faceCentroids(m.vertices, m.faces(~fLI,:)),faceCentroids(m2.vertices, m2.faces)))
+[m2] = matGeom.meshes3d.removeMeshFaces(m, fLI);
+assert(isequal(matGeom.meshes3d.faceCentroids(m.vertices, m.faces(~fLI,:)),matGeom.meshes3d.faceCentroids(m2.vertices, m2.faces)))
 
 figure('color','w')
-drawMesh(vertices, faces, 'faceColor', 'none', 'faceAlpha', .2);
-drawMesh(m2.vertices, m2.faces, 'faceAlpha', .7);
+matGeom.meshes3d.drawMesh(vertices, faces, 'faceColor', 'none', 'faceAlpha', .2);
+matGeom.meshes3d.drawMesh(m2.vertices, m2.faces, 'faceAlpha', .7);
 text(faceCents(fLI,1),faceCents(fLI,2),faceCents(fLI,3),num2str(rmFI'))
 view(3)
 axis equal

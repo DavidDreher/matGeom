@@ -24,11 +24,11 @@ p0 = [10 20 30];
 v0 = [40 50 60];
 line = [p0 v0];
 
-pos0 = linePosition3d(p0, line);
+pos0 = matGeom.geom3d.linePosition3d(p0, line);
 testCase.assertEqual(0, pos0);
 
 p1 = p0 + v0;
-pos1 = linePosition3d(p1, line);
+pos1 = matGeom.geom3d.linePosition3d(p1, line);
 testCase.assertEqual(1, pos1);
 
 
@@ -40,7 +40,7 @@ line = [p0 v0];
 
 points = [p0; p0+v0; p0-v0; p0+3*v0];
 
-pos = linePosition3d(points, line);
+pos = matGeom.geom3d.linePosition3d(points, line);
 exp = [0;1;-1;3];
 testCase.assertEqual(exp, pos);
 
@@ -57,7 +57,7 @@ v3 = [0 0 1];
 line3 = [p0 v3];
 lines = [line1;line2;line3];
 
-pos = linePosition3d(p0, lines);
+pos = matGeom.geom3d.linePosition3d(p0, lines);
 exp = [0;0;0];
 testCase.assertEqual(exp, pos);
 
@@ -77,7 +77,7 @@ line4 = [p0 v4];
 lines = [line1;line2;line3;line4];
 
 points = [p0+2*v1;p0+3*v2;p0+4*v3;p0+v1+v2+v3];
-pos = linePosition3d(points, lines);
+pos = matGeom.geom3d.linePosition3d(points, lines);
 exp = [2;3;4;1];
 testCase.assertEqual(exp, pos);
 

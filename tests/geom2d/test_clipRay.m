@@ -28,19 +28,19 @@ origin      = [30 40];
 direction   = [10 0];
 ray         = [origin direction];
 expected    = [30 40 100 40];
-testCase.assertEqual(expected, clipRay(ray, box), 'AbsTol', .01);
+testCase.assertEqual(expected, matGeom.geom2d.clipRay(ray, box), 'AbsTol', .01);
 
 % outside
 origin      = [30 140];
 direction   = [10 0];
 ray         = [origin direction];
-testCase.assertTrue(sum(isnan(clipRay(ray, box)))==4);
+testCase.assertTrue(sum(isnan(matGeom.geom2d.clipRay(ray, box)))==4);
 
 % line inside, but ray outside
 origin      = [130 40];
 direction   = [10 0];
 ray         = [origin direction];
-testCase.assertTrue(sum(isnan(clipRay(ray, box)))==4);
+testCase.assertTrue(sum(isnan(matGeom.geom2d.clipRay(ray, box)))==4);
 
 function testLeftSide(testCase)
 % test edges totally inside window, possibly touching edges
@@ -53,19 +53,19 @@ origin      = [30 40];
 direction   = [-10 0];
 ray         = [origin direction];
 expected    = [30 40 0 40];
-testCase.assertEqual(expected, clipRay(ray, box), 'AbsTol', .01);
+testCase.assertEqual(expected, matGeom.geom2d.clipRay(ray, box), 'AbsTol', .01);
 
 % outside
 origin      = [30 140];
 direction   = [-10 0];
 ray         = [origin direction];
-testCase.assertTrue(sum(isnan(clipRay(ray, box)))==4);
+testCase.assertTrue(sum(isnan(matGeom.geom2d.clipRay(ray, box)))==4);
 
 % line inside, but ray outside
 origin      = [-30 40];
 direction   = [-10 0];
 ray         = [origin direction];
-testCase.assertTrue(sum(isnan(clipRay(ray, box)))==4);
+testCase.assertTrue(sum(isnan(matGeom.geom2d.clipRay(ray, box)))==4);
 
 
 function testUpSide(testCase)
@@ -78,19 +78,19 @@ origin      = [30 40];
 direction   = [0 10];
 ray         = [origin direction];
 expected    = [30 40 30 100];
-testCase.assertEqual(expected, clipRay(ray, box), 'AbsTol', .01);
+testCase.assertEqual(expected, matGeom.geom2d.clipRay(ray, box), 'AbsTol', .01);
 
 % outside
 origin      = [130 40];
 direction   = [0 10];
 ray         = [origin direction];
-testCase.assertTrue(sum(isnan(clipRay(ray, box)))==4);
+testCase.assertTrue(sum(isnan(matGeom.geom2d.clipRay(ray, box)))==4);
 
 % line inside, but ray outside
 origin      = [30 140];
 direction   = [0 10];
 ray         = [origin direction];
-testCase.assertTrue(sum(isnan(clipRay(ray, box)))==4);
+testCase.assertTrue(sum(isnan(matGeom.geom2d.clipRay(ray, box)))==4);
 
 
 function testDownSide(testCase)
@@ -103,19 +103,19 @@ origin      = [30 40];
 direction   = [0 -10];
 ray         = [origin direction];
 expected    = [30 40 30 0];
-testCase.assertEqual(expected, clipRay(ray, box), 'AbsTol', .01);
+testCase.assertEqual(expected, matGeom.geom2d.clipRay(ray, box), 'AbsTol', .01);
 
 % outside
 origin      = [130 40];
 direction   = [0 -10];
 ray         = [origin direction];
-testCase.assertTrue(sum(isnan(clipRay(ray, box)))==4);
+testCase.assertTrue(sum(isnan(matGeom.geom2d.clipRay(ray, box)))==4);
 
 % line inside, but ray outside
 origin      = [30 -40];
 direction   = [0 -10];
 ray         = [origin direction];
-testCase.assertTrue(sum(isnan(clipRay(ray, box)))==4);
+testCase.assertTrue(sum(isnan(matGeom.geom2d.clipRay(ray, box)))==4);
 
 
 function testArray(testCase)
@@ -127,5 +127,5 @@ origins     = [30 40;30 40;30 140;130 40];
 directions  = [10 0;0 10;10 0;0 10];
 rays        = [origins directions];
 expected    = [30 40 100 40;30 40 30 100;NaN NaN NaN NaN;NaN NaN NaN NaN];
-clipped     = clipRay(rays, box);
+clipped     = matGeom.geom2d.clipRay(rays, box);
 testCase.assertEqual(expected, clipped, 'AbsTol', .01);

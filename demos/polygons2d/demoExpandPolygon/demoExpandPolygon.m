@@ -21,7 +21,7 @@ poly = [200 100;200 150;150 150;150 200;50 200;150 100];
 
 % show the polygon
 figure(1); clf; hold on;
-drawPolygon(poly, 'linewidth', 2);
+matGeom.polygons2d.drawPolygon(poly, 'linewidth', 2);
 
 % set up display
 axis equal;
@@ -31,19 +31,19 @@ axis([20 230 70 230]);
 %% Positive expansion
 
 % expand the polygon by a positive distance (outside of the polygon)
-polyOut = expandPolygon(poly, 10);
+polyOut = matGeom.polygons2d.expandPolygon(poly, 10);
 
 % draw the expanded polygon
-drawPolygon(polyOut, 'k');
+matGeom.polygons2d.drawPolygon(polyOut, 'k');
 
 
 %% Negative expansion
 
 % expand the polygon by a negative distance (inside the polygon)
-polyIn = expandPolygon(poly, -20);
+polyIn = matGeom.polygons2d.expandPolygon(poly, -20);
 
 % draw the expanded polygon
-drawPolygon(polyIn, 'g');
+matGeom.polygons2d.drawPolygon(polyIn, 'g');
 
 % decorate
 legend('Original', 'Outside', 'Inside')

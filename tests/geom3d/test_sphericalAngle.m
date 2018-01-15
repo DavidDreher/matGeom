@@ -23,12 +23,12 @@ p2 = [1 0 0];
 p1 = [0 1 0];
 p3 = [0 0 1];
 
-alpha = sphericalAngle(p1, p2, p3);
+alpha = matGeom.geom3d.sphericalAngle(p1, p2, p3);
 
 testCase.assertEqual(pi/2, alpha);
 
 % try in the other direction
-alpha = sphericalAngle(p3, p2, p1);
+alpha = matGeom.geom3d.sphericalAngle(p3, p2, p1);
 
 testCase.assertEqual(3*pi/2, alpha, 'AbsTol', 1e-4);
 
@@ -38,12 +38,12 @@ p1 = [1 0 0];
 p2 = [0 1 0];
 p3 = [0 0 1];
 
-alpha = sphericalAngle(p1, p2, p3);
+alpha = matGeom.geom3d.sphericalAngle(p1, p2, p3);
 
 testCase.assertEqual(3*pi/2, alpha);
 
 % try in the other direction
-alpha = sphericalAngle(p3, p2, p1);
+alpha = matGeom.geom3d.sphericalAngle(p3, p2, p1);
 
 testCase.assertEqual(pi/2, alpha, 'AbsTol', 1e-4);
 
@@ -54,5 +54,5 @@ sph1 = [.1 0];
 sph2 = [0 0];
 sph3 = [0 .1];
 
-alpha = sphericalAngle(sph1, sph2, sph3);
+alpha = matGeom.geom3d.sphericalAngle(sph1, sph2, sph3);
 testCase.assertEqual(pi/2, alpha, 'AbsTol', 1e-4);

@@ -22,12 +22,12 @@ function testBasicPoints(testCase) %#ok<*DEFNU>
 % create basic 3D circle
 circle = [10 20 30  50  60 30 20];
 
-pos60 = circle3dPosition(circle3dPoint(circle, 60), circle);
+pos60 = matGeom.geom3d.circle3dPosition(matGeom.geom3d.circle3dPoint(circle, 60), circle);
 testCase.assertEqual(60, pos60, 'AbsTol', .001);
 
-pos20 = circle3dPosition(circle3dPoint(circle, 20), circle);
+pos20 = matGeom.geom3d.circle3dPosition(matGeom.geom3d.circle3dPoint(circle, 20), circle);
 testCase.assertEqual(20, pos20, 'AbsTol', .001);
 
-pos230 = circle3dPosition(circle3dPoint(circle, 230), circle);
+pos230 = matGeom.geom3d.circle3dPosition(matGeom.geom3d.circle3dPoint(circle, 230), circle);
 testCase.assertEqual(230, pos230, 'AbsTol', .001);
 

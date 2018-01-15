@@ -24,6 +24,6 @@ p1 = [10 10];
 p2 = [50 10];
 p3 = [10 50];
 
-circle = circumCircle(p1, p2, p3);
+circle = matGeom.geom2d.circumCircle(p1, p2, p3);
 
 testCase.assertEqual([30 30], circle(1:2), 'AbsTol', .01);

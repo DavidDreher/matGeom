@@ -20,14 +20,14 @@ test_suite = functiontests(localfunctions);
 function test_Square(testCase) %#ok<*DEFNU>
 % Test call of function without argument
 poly = [0 0 10;10 0 10;10 10 10;0 10 10];
-area = polygonArea3d(poly);
+area = matGeom.geom3d.polygonArea3d(poly);
 testCase.assertEqual(100, area);
 
 
 function test_MShape(testCase)
 % A more complicated shape that involves negative triangle areas
 poly = [0 0 10;0 -40 10;20 40 10;40 -40 10;40 60 10;0 60 10];
-area = polygonArea3d(poly);
+area = matGeom.geom3d.polygonArea3d(poly);
 
 % area equals 20*40 + 2 * (20 * 80) / 2 = 800 + 1600 = 2400
 testCase.assertEqual(2400, area);
@@ -39,6 +39,6 @@ function test_colinearEdges(testCase)
 poly = [0 0 10 ; 5 0 10; 10 0 10; 10 10 10; 0 10 10];
 exp = 100;
 
-area = polygonArea3d(poly);
+area = matGeom.geom3d.polygonArea3d(poly);
 
 testCase.assertEqual(exp, area);

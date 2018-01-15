@@ -20,21 +20,21 @@ function testSquareCentroid(testCase) %#ok<*DEFNU>
 % Centroid of 4 points
 
 points = [0 0;10 0;10 10;0 10];
-centro = centroid(points);
+centro = matGeom.geom2d.centroid(points);
 testCase.assertEqual([5 5], centro, 'AbsTol', .01);
 
 function testSquareCentroidSeparateCoords(testCase)
 % Centroid of 4 points
 
 points = [0 0;10 0;10 10;0 10];
-centro = centroid(points(:,1), points(:,2));
+centro = matGeom.geom2d.centroid(points(:,1), points(:,2));
 testCase.assertEqual([5 5], centro, 'AbsTol', .01);
 
 function testSquareWeightedCentroid(testCase)
 % Centroid of 4 points
 
 points = [0 0;30 0;30 30;0 30];
-centro = centroid(points, [1;1;1;3]);
+centro = matGeom.geom2d.centroid(points, [1;1;1;3]);
 testCase.assertEqual([10 20], centro, 'AbsTol', .01);
 
 
@@ -42,6 +42,6 @@ function testSquareWeightedCentroidSeparateCoords(testCase)
 % Centroid of 4 points
 
 points = [0 0;30 0;30 30;0 30];
-centro = centroid(points(:,1), points(:,2), [1;1;1;3]);
+centro = matGeom.geom2d.centroid(points(:,1), points(:,2), [1;1;1;3]);
 testCase.assertEqual([10 20], centro, 'AbsTol', .01);
 

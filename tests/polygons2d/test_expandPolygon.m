@@ -25,9 +25,9 @@ p4 = [10 20];
 square = [p1;p2;p3;p4];
 
 expanded5 = [5 5;25 5;25 25;5 25];
-expanded = expandPolygon(square, 5);
+expanded = matGeom.polygons2d.expandPolygon(square, 5);
 testCase.assertTrue(length(expanded)==1);
-testCase.assertTrue(distancePolygons(expanded{1}, expanded5)<1e-14);
+testCase.assertTrue(matGeom.polygons2d.distancePolygons(expanded{1}, expanded5)<1e-14);
 
 function testOverlap(testCase)
 
@@ -35,14 +35,14 @@ function testOverlap(testCase)
 poly = [10 10;190 10;190 140;110 140;110 120;150 120;150 50;50 50;50 100;90 100;90 160;10 160];
 
 % small value: only one outline
-expanded = expandPolygon(poly, 5);
+expanded = matGeom.polygons2d.expandPolygon(poly, 5);
 testCase.assertTrue(length(expanded)==1);
 
 % value>10: two outlines
-expanded = expandPolygon(poly, 20, 'cleanupLoops', true);
+expanded = matGeom.polygons2d.expandPolygon(poly, 20, 'cleanupLoops', true);
 testCase.assertTrue(length(expanded)==2);
 
 % value>30: the inner outline disappear
-expanded = expandPolygon(poly, 35, 'cleanupLoops', true);
+expanded = matGeom.polygons2d.expandPolygon(poly, 35, 'cleanupLoops', true);
 testCase.assertTrue(length(expanded)==1);
 

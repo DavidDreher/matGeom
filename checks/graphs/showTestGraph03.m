@@ -20,7 +20,7 @@ function showTestGraph03(varargin)
 [nodes edges] = createTestGraph03;
 
 figure(1); clf;
-drawGraph(nodes, edges);
+matGeom.graphs.drawGraph(nodes, edges);
 hold on;
 
 
@@ -30,11 +30,11 @@ axis equal;
 
 %% Node labels
 
-drawNodeLabels(nodes, 1:size(nodes, 1));
+matGeom.graphs.drawNodeLabels(nodes, 1:size(nodes, 1));
 
 %% Node edges
 
-drawEdgeLabels(nodes, edges, 1:size(edges, 1));
+matGeom.graphs.drawEdgeLabels(nodes, edges, 1:size(edges, 1));
 
 print(gcf, 'plots/testGraph03.png', '-dpng');
 print(gcf, 'plots/testGraph03.eps', '-depsc2');

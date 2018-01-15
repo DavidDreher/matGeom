@@ -22,23 +22,23 @@ function testPointOnPolygon(testCase) %#ok<*DEFNU>
 poly = [0 0;10 0;10 10;0 10];
 
 p1 = [0 0];
-d = distancePointPolygon(p1, poly);
+d = matGeom.polygons2d.distancePointPolygon(p1, poly);
 testCase.assertEqual(0, d, 'AbsTol', .01);
 
 p1 = [10 0];
-d = distancePointPolygon(p1, poly);
+d = matGeom.polygons2d.distancePointPolygon(p1, poly);
 testCase.assertEqual(0, d, 'AbsTol', .01);
 
 p1 = [5 10];
-d = distancePointPolygon(p1, poly);
+d = matGeom.polygons2d.distancePointPolygon(p1, poly);
 testCase.assertEqual(0, d, 'AbsTol', .01);
 
 p1 = [10 5];
-d = distancePointPolygon(p1, poly);
+d = matGeom.polygons2d.distancePointPolygon(p1, poly);
 testCase.assertEqual(0, d, 'AbsTol', .01);
 
 p1 = [0 5];
-d = distancePointPolygon(p1, poly);
+d = matGeom.polygons2d.distancePointPolygon(p1, poly);
 testCase.assertEqual(0, d, 'AbsTol', .01);
 
 function testPointNotOnPolygon(testCase)
@@ -46,21 +46,21 @@ function testPointNotOnPolygon(testCase)
 poly = [0 0;10 0;10 10;0 10];
 
 p1 = [0 -10];
-d = distancePointPolygon(p1, poly);
+d = matGeom.polygons2d.distancePointPolygon(p1, poly);
 testCase.assertEqual(10, d, 'AbsTol', .01);
 
 p1 = [20 0];
-d = distancePointPolygon(p1, poly);
+d = matGeom.polygons2d.distancePointPolygon(p1, poly);
 testCase.assertEqual(10, d, 'AbsTol', .01);
 
 p1 = [5 5];
-d = distancePointPolygon(p1, poly);
+d = matGeom.polygons2d.distancePointPolygon(p1, poly);
 testCase.assertEqual(5, d, 'AbsTol', .01);
 
 p1 = [1 5];
-d = distancePointPolygon(p1, poly);
+d = matGeom.polygons2d.distancePointPolygon(p1, poly);
 testCase.assertEqual(1, d, 'AbsTol', .01);
 
 p1 = [-1 5];
-d = distancePointPolygon(p1, poly);
+d = matGeom.polygons2d.distancePointPolygon(p1, poly);
 testCase.assertEqual(1, d, 'AbsTol', .01);

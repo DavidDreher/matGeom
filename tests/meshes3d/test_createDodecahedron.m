@@ -20,12 +20,12 @@ test_suite = functiontests(localfunctions);
 
 function testCreation(testCase) %#ok<*DEFNU>
 
-createDodecahedron();
+matGeom.meshes3d.createDodecahedron();
 
 
 function testVEFCreation(testCase)
 
-[v, e, f] = createDodecahedron();
+[v, e, f] = matGeom.meshes3d.createDodecahedron();
 testCase.assertTrue(~isempty(v));
 testCase.assertTrue(~isempty(e));
 testCase.assertTrue(~isempty(f));
@@ -38,7 +38,7 @@ testCase.assertEqual(nf, length(f));
 
 function testVFCreation(testCase)
 
-[v, f] = createDodecahedron();
+[v, f] = matGeom.meshes3d.createDodecahedron();
 testCase.assertTrue(~isempty(v));
 testCase.assertTrue(~isempty(f));
 
@@ -49,7 +49,7 @@ testCase.assertEqual(nf, length(f));
 
 function testMeshCreation(testCase)
 
-mesh = createDodecahedron();
+mesh = matGeom.meshes3d.createDodecahedron();
 testCase.assertTrue(isstruct(mesh));
 testCase.assertTrue(isfield(mesh, 'vertices'));
 testCase.assertTrue(isfield(mesh, 'edges'));
@@ -63,12 +63,12 @@ testCase.assertEqual(nf, length(mesh.faces));
 
 function testFacesOutwards(testCase)
 
-[v, e, f] = createDodecahedron(); %#ok<ASGLU>
+[v, e, f] = matGeom.meshes3d.createDodecahedron(); %#ok<ASGLU>
 
-centro = centroid(v);
-fc  = meshFaceCentroids(v, f);
-fc2 = createVector(centro, fc);
-n   = meshFaceNormals(v, f);
+centro = matGeom.geom2d.centroid(v);
+fc  = matGeom.meshes3d.meshFaceCentroids(v, f);
+fc2 = matGeom.geom2d.createVector(centro, fc);
+n   = matGeom.meshes3d.meshFaceNormals(v, f);
 
 testCase.assertEqual(size(n), size(fc2));
 

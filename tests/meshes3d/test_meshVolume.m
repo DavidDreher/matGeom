@@ -19,15 +19,15 @@ test_suite = functiontests(localfunctions);
 
 function test_Cube(testCase) %#ok<*DEFNU>
 % Test call of function without argument
-[v, f] = createCube;
-vol = meshVolume(v, f);
+[v, f] = matGeom.meshes3d.createCube;
+vol = matGeom.meshes3d.meshVolume(v, f);
 testCase.assertEqual(1, vol);
 
 
 function test_Tetrahedron(testCase)
 % Test call of function without argument
-[v, f] = createTetrahedron;
-vol = meshVolume(v, f);
+[v, f] = matGeom.meshes3d.createTetrahedron;
+vol = matGeom.meshes3d.meshVolume(v, f);
 
 % this is not a unit tetrahedron, volume is bigger...
 exp = 1 / 3;

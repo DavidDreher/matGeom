@@ -20,7 +20,7 @@ test_suite = functiontests(localfunctions);
 function testGraph02(testCase) %#ok<*DEFNU>
 
 [nodes, edges] = createTestGraph02;
-center = graphCenter(nodes, edges);
+center = matGeom.graphs.graphCenter(nodes, edges);
 
 exp = [6;7];
 testCase.assertEqual(exp, center);

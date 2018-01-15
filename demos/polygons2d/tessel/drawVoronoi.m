@@ -44,6 +44,6 @@ figure(1); clf;
 axis(window);hold on;
 
 % draw diagram
-drawEdge(edges);
-drawPoint(points, 'bo');
+matGeom.geom2d.drawEdge(edges);
+matGeom.geom2d.drawPoint(points, 'bo');
 

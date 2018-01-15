@@ -24,22 +24,22 @@ v2 = [0 1 0];
 v3 = [0 0 1];
 exp = pi/2;
 
-angle1 = vectorAngle3d(v1, v2);
+angle1 = matGeom.geom3d.vectorAngle3d(v1, v2);
 testCase.assertEqual(exp, angle1);
 
-angle2 = vectorAngle3d(v1, v3);
+angle2 = matGeom.geom3d.vectorAngle3d(v1, v3);
 testCase.assertEqual(exp, angle2);
 
-angle3 = vectorAngle3d(v2, v3);
+angle3 = matGeom.geom3d.vectorAngle3d(v2, v3);
 testCase.assertEqual(exp, angle3);
 
-angle1 = vectorAngle3d(v1, -v2);
+angle1 = matGeom.geom3d.vectorAngle3d(v1, -v2);
 testCase.assertEqual(exp, angle1);
 
-angle2 = vectorAngle3d(v1, -v3);
+angle2 = matGeom.geom3d.vectorAngle3d(v1, -v3);
 testCase.assertEqual(exp, angle2);
 
-angle3 = vectorAngle3d(v2, -v3);
+angle3 = matGeom.geom3d.vectorAngle3d(v2, -v3);
 testCase.assertEqual(exp, angle3);
 
 function testOrthogonalVectors(testCase)
@@ -49,13 +49,13 @@ v2 = [0 4 0];
 v3 = [0 0 5];
 exp = pi/2;
 
-angle1 = vectorAngle3d(v1, v2);
+angle1 = matGeom.geom3d.vectorAngle3d(v1, v2);
 testCase.assertEqual(exp, angle1);
 
-angle2 = vectorAngle3d(v1, v3);
+angle2 = matGeom.geom3d.vectorAngle3d(v1, v3);
 testCase.assertEqual(exp, angle2);
 
-angle3 = vectorAngle3d(v2, v3);
+angle3 = matGeom.geom3d.vectorAngle3d(v2, v3);
 testCase.assertEqual(exp, angle3);
 
 
@@ -65,7 +65,7 @@ v1 = [3 0 0];
 v2 = [5 0 0];
 exp = 0;
 
-angle1 = vectorAngle3d(v1, v2);
+angle1 = matGeom.geom3d.vectorAngle3d(v1, v2);
 testCase.assertEqual(exp, angle1);
 
 
@@ -73,7 +73,7 @@ v1 = [3 4 5]*7;
 v2 = [3 4 5]*11;
 exp = 0;
 
-angle1 = vectorAngle3d(v1, v2);
+angle1 = matGeom.geom3d.vectorAngle3d(v1, v2);
 testCase.assertEqual(exp, angle1);
 
 
@@ -86,7 +86,7 @@ v3 = [0 0 5];
 vecs = cat(1, v1, v2, v3);
 
 exp = [0; pi/2; pi/2];
-angles = vectorAngle3d(v0, vecs);
+angles = matGeom.geom3d.vectorAngle3d(v0, vecs);
 testCase.assertEqual(exp, angles);
 
 function testArrayByArray(testCase)
@@ -99,6 +99,6 @@ vecs1 = cat(1, v0, v0, v0);
 vecs2 = cat(1, v1, v2, v3);
 
 exp = [0; pi/2; pi/2];
-angles = vectorAngle3d(vecs1, vecs2);
+angles = matGeom.geom3d.vectorAngle3d(vecs1, vecs2);
 testCase.assertEqual(exp, angles);
 

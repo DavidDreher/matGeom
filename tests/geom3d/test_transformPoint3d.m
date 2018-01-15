@@ -19,9 +19,9 @@ test_suite = functiontests(localfunctions);
 function testTranslation(testCase) %#ok<*DEFNU>
 p0 = [1 2 3];
 v  = [4 5 6];
-trans = createTranslation3d(v);
+trans = matGeom.geom3d.createTranslation3d(v);
 
-pt = transformPoint3d(p0, trans);
+pt = matGeom.geom3d.transformPoint3d(p0, trans);
 ctrl = p0 + v;
 testCase.assertEqual(ctrl, pt, 'AbsTol', .01);
 
@@ -30,9 +30,9 @@ function testTranslationOnArray(testCase)
 p0 = [1 2 3;10 20 30;10 20 30];
 
 v  = [4 5 6];
-trans = createTranslation3d(v);
+trans = matGeom.geom3d.createTranslation3d(v);
 
-pt = transformPoint3d(p0, trans);
+pt = matGeom.geom3d.transformPoint3d(p0, trans);
 ctrl = p0 + repmat(v, 3, 1);
 
 testCase.assertEqual(ctrl, pt, 'AbsTol', .01);
@@ -40,9 +40,9 @@ testCase.assertEqual(ctrl, pt, 'AbsTol', .01);
 
 function testRotationOx(testCase)
 p0 = [10 20 30];
-trans = createRotationOx([10 10 10], pi/2);
+trans = matGeom.geom3d.createRotationOx([10 10 10], pi/2);
 
-pt = transformPoint3d(p0, trans);
+pt = matGeom.geom3d.transformPoint3d(p0, trans);
 ctrl = [10 -10 20];
 testCase.assertEqual(ctrl, pt, 'AbsTol', .01);
 

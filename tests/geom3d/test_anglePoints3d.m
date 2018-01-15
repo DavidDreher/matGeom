@@ -25,13 +25,13 @@ p2 = [0 3 0];
 p3 = [0 0 4];
 exp = pi/2;
 
-res = anglePoints3d(p1, origin, p2);
+res = matGeom.geom3d.anglePoints3d(p1, origin, p2);
 testCase.assertEqual(exp, res, 'AbsTol', .01);
 
-res = anglePoints3d(p1, origin, p3);
+res = matGeom.geom3d.anglePoints3d(p1, origin, p3);
 testCase.assertEqual(exp, res, 'AbsTol', .01);
 
-res = anglePoints3d(p2, origin, p3);
+res = matGeom.geom3d.anglePoints3d(p2, origin, p3);
 testCase.assertEqual(exp, res, 'AbsTol', .01);
 
 
@@ -42,7 +42,7 @@ p1 = [3 3 0];
 p2 = [10 0 0];
 exp = pi/4;
 
-res = anglePoints3d(p1, origin, p2);
+res = matGeom.geom3d.anglePoints3d(p1, origin, p2);
 
 testCase.assertEqual(exp, res, 'AbsTol', .01);
 
@@ -55,6 +55,6 @@ p2(:,1) = 5;
 p2(:,2) = -2:2;
 p3 = [10 0 0];
 
-res = anglePoints3d(p1, p2, p3);
+res = matGeom.geom3d.anglePoints3d(p1, p2, p3);
 testCase.assertEqual([5 1], size(res), 'AbsTol', .01);
 

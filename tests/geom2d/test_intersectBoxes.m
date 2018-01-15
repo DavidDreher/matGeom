@@ -22,5 +22,5 @@ function testBasic(testCase) %#ok<*DEFNU>
 box1 = [5 20 10 25];
 box2 = [0 15 15 20];
 exp  = [5 15 15 20];
-box = intersectBoxes(box1, box2);
+box = matGeom.geom2d.intersectBoxes(box1, box2);
 testCase.assertEqual(exp, box, 'AbsTol', .01);

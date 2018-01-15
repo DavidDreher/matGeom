@@ -25,16 +25,16 @@ box = [0 100 0 100];
 % inside, to the right
 line = [30 40 10 0];
 edge = [0 40 100 40];
-testCase.assertEqual(edge, clipLine(line, box), 'AbsTol', .01);
+testCase.assertEqual(edge, matGeom.geom2d.clipLine(line, box), 'AbsTol', .01);
 
 % inside, to the left
 line = [30 40 -10 0];
 edge = [100 40 0 40];
-testCase.assertEqual(edge, clipLine(line, box), 'AbsTol', .01);
+testCase.assertEqual(edge, matGeom.geom2d.clipLine(line, box), 'AbsTol', .01);
 
 % outside
 line = [30 140 10 0];
-testCase.assertTrue(sum(isnan(clipLine(line, box)))==4);
+testCase.assertTrue(sum(isnan(matGeom.geom2d.clipLine(line, box)))==4);
 
 function testVert(testCase)
 % test clipping of vertical lines
@@ -44,16 +44,16 @@ box = [0 100 0 100];
 % inside, upward
 line = [30 40 0 10];
 edge = [30 0 30 100];
-testCase.assertEqual(edge, clipLine(line, box), 'AbsTol', .01);
+testCase.assertEqual(edge, matGeom.geom2d.clipLine(line, box), 'AbsTol', .01);
 
 % inside, downward
 line = [30 40 0 -10];
 edge = [30 100 30 0];
-testCase.assertEqual(edge, clipLine(line, box), 'AbsTol', .01);
+testCase.assertEqual(edge, matGeom.geom2d.clipLine(line, box), 'AbsTol', .01);
 
 % outside
 line = [140 30 0 10];
-testCase.assertTrue(sum(isnan(clipLine(line, box)))==4);
+testCase.assertTrue(sum(isnan(matGeom.geom2d.clipLine(line, box)))==4);
 
 function testDiagUp(testCase)
 % test clipping of upward diagonal lines
@@ -63,19 +63,19 @@ box = [0 100 0 100];
 % inside, top right corner
 line = [80 30 10 10];
 edge = [50 0 100 50];
-testCase.assertEqual(edge, clipLine(line, box), 'AbsTol', .01);
+testCase.assertEqual(edge, matGeom.geom2d.clipLine(line, box), 'AbsTol', .01);
 
 % inside, down right corner
 line = [20 70 10 10];
 edge = [0 50 50 100];
-testCase.assertEqual(edge, clipLine(line, box), 'AbsTol', .01);
+testCase.assertEqual(edge, matGeom.geom2d.clipLine(line, box), 'AbsTol', .01);
 
 % outside
 line = [140 -30 10 10];
-testCase.assertTrue(sum(isnan(clipLine(line, box)))==4);
+testCase.assertTrue(sum(isnan(matGeom.geom2d.clipLine(line, box)))==4);
 
 line = [-40 130 10 10];
-testCase.assertTrue(sum(isnan(clipLine(line, box)))==4);
+testCase.assertTrue(sum(isnan(matGeom.geom2d.clipLine(line, box)))==4);
 
 
 function testMultiLines(testCase)
@@ -95,7 +95,7 @@ edge = [...
     NaN NaN NaN NaN; ...
     ];
 
-clipped = clipLine(line, box);
+clipped = matGeom.geom2d.clipLine(line, box);
 testCase.assertEqual(4, size(clipped, 1));
 testCase.assertEqual(edge(1:2, :), clipped(1:2, :), 'AbsTol', .01);
 testCase.assertTrue(sum(isnan(clipped(3,:)))==4);
@@ -110,7 +110,7 @@ box = [-1 1 -1 1]*1e10;
 line = [3 0 1 2];
 D = 1e10;
 edge = [3-D/2 -D 3+D/2 D];
-clipped = clipLine(line, box);
+clipped = matGeom.geom2d.clipLine(line, box);
 testCase.assertEqual(edge, clipped, 'AbsTol', .01);
 
 function testBigLine(testCase)
@@ -122,5 +122,5 @@ box = [-1 1 -1 1]*100;
 line = [3 0 1*1e10 2*1e10];
 D = 100;
 edge = [3-D/2 -D 3+D/2 D];
-clipped = clipLine(line, box);
+clipped = matGeom.geom2d.clipLine(line, box);
 testCase.assertEqual(edge, clipped, 'AbsTol', .01);

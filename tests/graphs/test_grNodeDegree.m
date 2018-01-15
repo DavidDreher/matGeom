@@ -22,7 +22,7 @@ function testSimpleNode(testCase) %#ok<*DEFNU>
 
 [nodes, edges] = createTestGraph01(); %#ok<ASGLU>
 
-deg1 = grNodeDegree(1, edges);
+deg1 = matGeom.graphs.grNodeDegree(1, edges);
 testCase.assertEqual(3, deg1);
 
 
@@ -30,7 +30,7 @@ function testAllNodes(testCase)
 
 [nodes, edges] = createTestGraph01(); %#ok<ASGLU>
 
-deg = grNodeDegree(1:8, edges);
+deg = matGeom.graphs.grNodeDegree(1:8, edges);
 exp = [3 3 2 2 4 2 3 1];
 testCase.assertEqual(exp, deg);
 

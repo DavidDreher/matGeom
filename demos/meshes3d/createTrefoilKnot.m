@@ -48,11 +48,11 @@ axis([-4 4 -4 4 -2 2]);
 %% Create surrounding mesh
 
 % compute mesh
-[v2, f2] = curveToMesh(curve, thickness, nCorners);
+[v2, f2] = matGeom.meshes3d.curveToMesh(curve, thickness, nCorners);
 
 % diusplay mesh
 figure;
-drawMesh(v2, f2);
+matGeom.meshes3d.drawMesh(v2, f2);
 
 % keep same display options
 axis equal; view(3);

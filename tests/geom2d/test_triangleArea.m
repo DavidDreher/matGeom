@@ -27,15 +27,15 @@ p3 = [10 50];
 exp = 300;
 
 % run as separate inputs
-area = triangleArea(p1, p2, p3);
+area = matGeom.geom2d.triangleArea(p1, p2, p3);
 testCase.assertEqual(exp, area);
-area = triangleArea(p2, p3, p1);
+area = matGeom.geom2d.triangleArea(p2, p3, p1);
 testCase.assertEqual(exp, area);
-area = triangleArea(p3, p1, p2);
+area = matGeom.geom2d.triangleArea(p3, p1, p2);
 testCase.assertEqual(exp, area);
 
 % run as bundled array
-area = triangleArea([p1; p2; p3]);
+area = matGeom.geom2d.triangleArea([p1; p2; p3]);
 testCase.assertEqual(exp, area);
 
 function test_CW_Triangle(testCase)
@@ -48,14 +48,14 @@ p3 = [10 50];
 exp = -300;
 
 % run as separate inputs
-area = triangleArea(p3, p2, p1);
+area = matGeom.geom2d.triangleArea(p3, p2, p1);
 testCase.assertEqual(exp, area);
-area = triangleArea(p1, p3, p2);
+area = matGeom.geom2d.triangleArea(p1, p3, p2);
 testCase.assertEqual(exp, area);
-area = triangleArea(p2, p1, p3);
+area = matGeom.geom2d.triangleArea(p2, p1, p3);
 testCase.assertEqual(exp, area);
 
 % run as bundled array
-area = triangleArea([p3; p2; p1]);
+area = matGeom.geom2d.triangleArea([p3; p2; p1]);
 testCase.assertEqual(exp, area);
 

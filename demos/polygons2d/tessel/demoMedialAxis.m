@@ -29,7 +29,7 @@ poly = pts(hull, :);
 
 % the result is given as graph : n are nodes (points), and e are edges,
 % contaiing indices of two vertices of an edge.
-[n e] = medialAxisConvex(poly);
+[n e] = matGeom.polygons2d.medialAxisConvex(poly);
 
 %% Draw result
 
@@ -39,8 +39,8 @@ axis([0 100 0 100]);
 hold on;
 
 % draw polygon
-drawPolygon(poly);
+matGeom.polygons2d.drawPolygon(poly);
 
 % draw medial axis of polygon
-drawGraph(n, e);
+matGeom.graphs.drawGraph(n, e);
 

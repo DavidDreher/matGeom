@@ -19,19 +19,19 @@ test_suite = functiontests(localfunctions);
 
 function test_Cube(testCase) %#ok<*DEFNU>
 
-[v, f] = createCube;
-f2 = triangulateFaces(f);
+[v, f] = matGeom.meshes3d.createCube;
+f2 = matGeom.meshes3d.triangulateFaces(f);
 
 exp = 3/2;
-mb = trimeshMeanBreadth(v, f2);
+mb = matGeom.meshes3d.trimeshMeanBreadth(v, f2);
 testCase.assertEqual(exp, mb, 'AbsTol', .01);
 
 function test_Octagon(testCase) %#ok<*DEFNU>
 
-[v, f] = createOctahedron;
+[v, f] = matGeom.meshes3d.createOctahedron;
 
 exp = 1.175 * sqrt(2);
-mb = trimeshMeanBreadth(v, f);
+mb = matGeom.meshes3d.trimeshMeanBreadth(v, f);
 testCase.assertEqual(exp, mb, 'AbsTol', .01);
 
 % function test_DiscretizedBall(testCase) %#ok<*DEFNU>

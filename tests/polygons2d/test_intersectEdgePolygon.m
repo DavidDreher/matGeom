@@ -22,7 +22,7 @@ function test_Square(testCase) %#ok<*DEFNU>
 poly = [0 0;10 0;10 10;0 10];
 edge = [9 2 9+3*1 2+3*2];
 exp = [10 4];
-inter = intersectEdgePolygon(edge, poly);
+inter = matGeom.polygons2d.intersectEdgePolygon(edge, poly);
 testCase.assertEqual(exp, inter);
 
 function test_GetIndex(testCase)
@@ -30,7 +30,7 @@ function test_GetIndex(testCase)
 poly = [0 0;10 0;10 10;0 10];
 edge = [9 2 9+3*1 2+3*2];
 exp = [10 4];
-[inter, index] = intersectEdgePolygon(edge, poly);
+[inter, index] = matGeom.polygons2d.intersectEdgePolygon(edge, poly);
 testCase.assertEqual(exp, inter);
 testCase.assertEqual(2, index);
 
@@ -38,5 +38,5 @@ function test_NoIntersect(testCase)
 % Test call of function without argument
 poly = [0 0;10 0;10 10;0 10];
 edge = [2 3 8 6];
-inter = intersectEdgePolygon(edge, poly);
+inter = matGeom.polygons2d.intersectEdgePolygon(edge, poly);
 testCase.assertTrue(isempty(inter));

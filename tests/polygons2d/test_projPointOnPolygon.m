@@ -24,16 +24,16 @@ p3 = [20 20];
 p4 = [10 20];
 poly = [p1;p2;p3;p4];
 
-testCase.assertEqual(  0, projPointOnPolygon([ 0  0], poly), 'AbsTol', .01);
-testCase.assertEqual( .5, projPointOnPolygon([15  0], poly), 'AbsTol', .01);
-testCase.assertEqual(  1, projPointOnPolygon([30  0], poly), 'AbsTol', .01);
-testCase.assertEqual(1.5, projPointOnPolygon([30 15], poly), 'AbsTol', .01);
-testCase.assertEqual(  2, projPointOnPolygon([30 30], poly), 'AbsTol', .01);
-testCase.assertEqual(2.5, projPointOnPolygon([15 30], poly), 'AbsTol', .01);
-testCase.assertEqual(  3, projPointOnPolygon([ 0 30], poly), 'AbsTol', .01);
+testCase.assertEqual(  0, matGeom.polygons2d.projPointOnPolygon([ 0  0], poly), 'AbsTol', .01);
+testCase.assertEqual( .5, matGeom.polygons2d.projPointOnPolygon([15  0], poly), 'AbsTol', .01);
+testCase.assertEqual(  1, matGeom.polygons2d.projPointOnPolygon([30  0], poly), 'AbsTol', .01);
+testCase.assertEqual(1.5, matGeom.polygons2d.projPointOnPolygon([30 15], poly), 'AbsTol', .01);
+testCase.assertEqual(  2, matGeom.polygons2d.projPointOnPolygon([30 30], poly), 'AbsTol', .01);
+testCase.assertEqual(2.5, matGeom.polygons2d.projPointOnPolygon([15 30], poly), 'AbsTol', .01);
+testCase.assertEqual(  3, matGeom.polygons2d.projPointOnPolygon([ 0 30], poly), 'AbsTol', .01);
 
-testCase.assertEqual(3.8, projPointOnPolygon([ 0 12], poly), 'AbsTol', .01);
-testCase.assertEqual(3.2, projPointOnPolygon([ 0 18], poly), 'AbsTol', .01);
+testCase.assertEqual(3.8, matGeom.polygons2d.projPointOnPolygon([ 0 12], poly), 'AbsTol', .01);
+testCase.assertEqual(3.2, matGeom.polygons2d.projPointOnPolygon([ 0 18], poly), 'AbsTol', .01);
 
 function testPointArray(testCase)
 
@@ -46,4 +46,4 @@ poly = [p1;p2;p3;p4];
 pts = [0 0;15 0;30 0;30 15;30 30;15 30;0 30;0 12;0 18];
 exp = [0;.5;1;1.5;2;2.5;3;3.8;3.2];
 
-testCase.assertEqual(exp, projPointOnPolygon(pts, poly), 'AbsTol', .01);
+testCase.assertEqual(exp, matGeom.polygons2d.projPointOnPolygon(pts, poly), 'AbsTol', .01);

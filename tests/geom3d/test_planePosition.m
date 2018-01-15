@@ -23,7 +23,7 @@ function test_Simple(testCase) %#ok<*DEFNU>
 plane = [10 20 30  1 0 0  0 1 0];
 point = [13 24 35];
 exp = [3 4];
-pos = planePosition(point, plane);
+pos = matGeom.geom3d.planePosition(point, plane);
 testCase.assertEqual(exp, pos);
 
 function test_NPlanes(testCase)
@@ -32,7 +32,7 @@ function test_NPlanes(testCase)
 plane = [10 20 30  1 0 0  0 1 0];
 point = [13 24 35];
 exp = repmat([3 4], 5, 1);
-pos = planePosition(point, repmat(plane, 5, 1));
+pos = matGeom.geom3d.planePosition(point, repmat(plane, 5, 1));
 testCase.assertEqual(exp, pos);
 
 
@@ -42,7 +42,7 @@ function test_NPoints(testCase)
 plane = [10 20 30  1 0 0  0 1 0];
 point = [13 24 35];
 exp = repmat([3 4], 5, 1);
-pos = planePosition(repmat(point, 5, 1), plane);
+pos = matGeom.geom3d.planePosition(repmat(point, 5, 1), plane);
 testCase.assertEqual(exp, pos);
 
 function test_NBoth(testCase)
@@ -51,5 +51,5 @@ function test_NBoth(testCase)
 plane = [10 20 30  1 0 0  0 1 0];
 point = [13 24 35];
 exp = repmat([3 4], 5, 1);
-pos = planePosition(repmat(point, 5, 1), repmat(plane, 5, 1));
+pos = matGeom.geom3d.planePosition(repmat(point, 5, 1), repmat(plane, 5, 1));
 testCase.assertEqual(exp, pos);

@@ -26,7 +26,7 @@ p4 = [10 20];
 square = [p1;p2;p3;p4];
 exp = [0;10;20;30];
 
-testCase.assertEqual(exp, parametrize(square));
+testCase.assertEqual(exp, matGeom.polygons2d.parametrize(square));
 
 function testSquare3d(testCase)
 % Tests with a square of perimeter 40
@@ -37,7 +37,7 @@ p4 = [10 20 0];
 square = [p1;p2;p3;p4];
 exp = [0;10;20;30];
 
-testCase.assertEqual(exp, parametrize(square));
+testCase.assertEqual(exp, matGeom.polygons2d.parametrize(square));
 
 function testSquareNormaized(testCase) %#ok<*DEFNU>
 % Tests with a square of perimeter 40
@@ -48,4 +48,4 @@ p4 = [10 20];
 square = [p1;p2;p3;p4;p1];
 exp = [0;.25;.5;.75;1];
 
-testCase.assertEqual(exp, parametrize(square, 'normalize', true));
+testCase.assertEqual(exp, matGeom.polygons2d.parametrize(square, 'normalize', true));

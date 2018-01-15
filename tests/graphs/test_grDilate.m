@@ -22,7 +22,7 @@ function testSimpleGraph(testCase) %#ok<*DEFNU>
 
 [nodes, edges, values] = createTestGraph01(); %#ok<ASGLU>
 
-valDil = grDilate(edges, values);
+valDil = matGeom.graphs.grDilate(edges, values);
 exp = [80;80;70;70;80;50;80;40];
 testCase.assertEqual(exp, valDil);
 

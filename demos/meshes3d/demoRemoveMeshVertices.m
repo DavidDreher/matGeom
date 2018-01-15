@@ -15,24 +15,24 @@
 
 %% in & out: faces / vertices 
 figure('color','w'); view(3);
-[v, f] = createSoccerBall; 
-plane = createPlane([.6 0 0], [1 0 -1]);
-indAbove = find(~isBelowPlane(v, plane));
-[v2, f2] = removeMeshVertices(v, f, indAbove);
-drawMesh(v2, f2); drawPlane3d(plane); axis equal;
+[v, f] = matGeom.meshes3d.createSoccerBall; 
+plane = matGeom.geom3d.createPlane([.6 0 0], [1 0 -1]);
+indAbove = find(~matGeom.geom3d.isBelowPlane(v, plane));
+[v2, f2] = matGeom.meshes3d.removeMeshVertices(v, f, indAbove);
+matGeom.meshes3d.drawMesh(v2, f2); matGeom.geom3d.drawPlane3d(plane); axis equal;
 
 %% in: faces / vertices | out: vertices-faces-struct
 figure('color','w'); view(3); 
-[v, f] = createSoccerBall; 
-plane = createPlane([.6 0 0], [1 0 0]);
-indAbove = find(~isBelowPlane(v, plane));
-mesh2 = removeMeshVertices(v, f, indAbove);
-drawMesh(mesh2); drawPlane3d(plane); axis equal;
+[v, f] = matGeom.meshes3d.createSoccerBall; 
+plane = matGeom.geom3d.createPlane([.6 0 0], [1 0 0]);
+indAbove = find(~matGeom.geom3d.isBelowPlane(v, plane));
+mesh2 = matGeom.meshes3d.removeMeshVertices(v, f, indAbove);
+matGeom.meshes3d.drawMesh(mesh2); matGeom.geom3d.drawPlane3d(plane); axis equal;
 
 %% in & out: vertices-faces-struct
 figure('color','w'); view(3);
-mesh = createSoccerBall; 
-plane = createPlane([-.6 0 0], [1 1 0]);
-indAbove = find(~isBelowPlane(v, plane));
-mesh2 = removeMeshVertices(mesh, indAbove);
-drawMesh(mesh2); drawPlane3d(plane); axis equal;
+mesh = matGeom.meshes3d.createSoccerBall; 
+plane = matGeom.geom3d.createPlane([-.6 0 0], [1 1 0]);
+indAbove = find(~matGeom.geom3d.isBelowPlane(v, plane));
+mesh2 = matGeom.meshes3d.removeMeshVertices(mesh, indAbove);
+matGeom.meshes3d.drawMesh(mesh2); matGeom.geom3d.drawPlane3d(plane); axis equal;

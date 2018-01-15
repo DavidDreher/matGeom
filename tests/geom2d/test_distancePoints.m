@@ -23,9 +23,9 @@ pt1 = [10 10];
 pt2 = [10 20];
 pt3 = [20 20];
 
-testCase.assertEqual(distancePoints(pt1, pt2), 10, 'AbsTol', .01);
-testCase.assertEqual(distancePoints(pt2, pt3), 10, 'AbsTol', .01);
-testCase.assertEqual(distancePoints(pt1, pt3), 10*sqrt(2), 'AbsTol', .01);
+testCase.assertEqual(matGeom.geom2d.distancePoints(pt1, pt2), 10, 'AbsTol', .01);
+testCase.assertEqual(matGeom.geom2d.distancePoints(pt2, pt3), 10, 'AbsTol', .01);
+testCase.assertEqual(matGeom.geom2d.distancePoints(pt1, pt3), 10*sqrt(2), 'AbsTol', .01);
 
 function testSingleSingleNorm1(testCase)
 % test norm 1, equivalent to sum of absolute differences
@@ -34,9 +34,9 @@ pt1 = [10 10];
 pt2 = [10 20];
 pt3 = [20 20];
 
-testCase.assertEqual(distancePoints(pt1, pt2, 1), 10, 'AbsTol', .01);
-testCase.assertEqual(distancePoints(pt2, pt3, 1), 10, 'AbsTol', .01);
-testCase.assertEqual(distancePoints(pt1, pt3, 1), 20, 'AbsTol', .01);
+testCase.assertEqual(matGeom.geom2d.distancePoints(pt1, pt2, 1), 10, 'AbsTol', .01);
+testCase.assertEqual(matGeom.geom2d.distancePoints(pt2, pt3, 1), 10, 'AbsTol', .01);
+testCase.assertEqual(matGeom.geom2d.distancePoints(pt1, pt3, 1), 20, 'AbsTol', .01);
 
 function testSingleSingleMaxNorm(testCase)
 
@@ -44,9 +44,9 @@ pt1 = [10 10];
 pt2 = [10 20];
 pt3 = [20 20];
 
-testCase.assertEqual(distancePoints(pt1, pt2, inf), 10, 'AbsTol', .01);
-testCase.assertEqual(distancePoints(pt2, pt3, inf), 10, 'AbsTol', .01);
-testCase.assertEqual(distancePoints(pt1, pt3, inf), 10, 'AbsTol', .01);
+testCase.assertEqual(matGeom.geom2d.distancePoints(pt1, pt2, inf), 10, 'AbsTol', .01);
+testCase.assertEqual(matGeom.geom2d.distancePoints(pt2, pt3, inf), 10, 'AbsTol', .01);
+testCase.assertEqual(matGeom.geom2d.distancePoints(pt1, pt3, inf), 10, 'AbsTol', .01);
 
 function testSingleSingle3d(testCase)
 
@@ -55,10 +55,10 @@ pt2 = [10 20 10];
 pt3 = [20 20 10];
 pt4 = [20 20 20];
 
-testCase.assertEqual(distancePoints(pt1, pt2), 10, 'AbsTol', .01);
-testCase.assertEqual(distancePoints(pt2, pt3), 10, 'AbsTol', .01);
-testCase.assertEqual(distancePoints(pt1, pt3), 10*sqrt(2), 'AbsTol', .01);
-testCase.assertEqual(distancePoints(pt1, pt4), 10*sqrt(3), 'AbsTol', .01);
+testCase.assertEqual(matGeom.geom2d.distancePoints(pt1, pt2), 10, 'AbsTol', .01);
+testCase.assertEqual(matGeom.geom2d.distancePoints(pt2, pt3), 10, 'AbsTol', .01);
+testCase.assertEqual(matGeom.geom2d.distancePoints(pt1, pt3), 10*sqrt(2), 'AbsTol', .01);
+testCase.assertEqual(matGeom.geom2d.distancePoints(pt1, pt4), 10*sqrt(3), 'AbsTol', .01);
 
 
 function testSingleSingle3dNorm1(testCase)
@@ -69,10 +69,10 @@ pt2 = [10 20 30];
 pt3 = [20 20 30];
 pt4 = [20 20 40];
 
-testCase.assertEqual(distancePoints(pt1, pt2, 1), 10, 'AbsTol', .01);
-testCase.assertEqual(distancePoints(pt2, pt3, 1), 10, 'AbsTol', .01);
-testCase.assertEqual(distancePoints(pt1, pt3, 1), 20, 'AbsTol', .01);
-testCase.assertEqual(distancePoints(pt1, pt4, 1), 30, 'AbsTol', .01);
+testCase.assertEqual(matGeom.geom2d.distancePoints(pt1, pt2, 1), 10, 'AbsTol', .01);
+testCase.assertEqual(matGeom.geom2d.distancePoints(pt2, pt3, 1), 10, 'AbsTol', .01);
+testCase.assertEqual(matGeom.geom2d.distancePoints(pt1, pt3, 1), 20, 'AbsTol', .01);
+testCase.assertEqual(matGeom.geom2d.distancePoints(pt1, pt4, 1), 30, 'AbsTol', .01);
 
 function testSingleSingleMaxNorm3d(testCase)
 
@@ -81,10 +81,10 @@ pt2 = [10 20 10];
 pt3 = [20 20 10];
 pt4 = [20 20 20];
 
-testCase.assertEqual(distancePoints(pt1, pt2, inf), 10, 'AbsTol', .01);
-testCase.assertEqual(distancePoints(pt2, pt3, inf), 10, 'AbsTol', .01);
-testCase.assertEqual(distancePoints(pt1, pt3, inf), 10, 'AbsTol', .01);
-testCase.assertEqual(distancePoints(pt1, pt4, inf), 10, 'AbsTol', .01);
+testCase.assertEqual(matGeom.geom2d.distancePoints(pt1, pt2, inf), 10, 'AbsTol', .01);
+testCase.assertEqual(matGeom.geom2d.distancePoints(pt2, pt3, inf), 10, 'AbsTol', .01);
+testCase.assertEqual(matGeom.geom2d.distancePoints(pt1, pt3, inf), 10, 'AbsTol', .01);
+testCase.assertEqual(matGeom.geom2d.distancePoints(pt1, pt4, inf), 10, 'AbsTol', .01);
 
 function testSingleArray(testCase)
 
@@ -93,7 +93,7 @@ pt2 = [10 20];
 pt3 = [20 20];
 
 testCase.assertEqual(...
-    distancePoints(pt1, [pt1; pt2; pt3]), ...
+    matGeom.geom2d.distancePoints(pt1, [pt1; pt2; pt3]), ...
     [0 10 10*sqrt(2)], 'AbsTol', .01);
 
 function testArrayArray(testCase)
@@ -110,7 +110,7 @@ res = [...
     10 0 10 10*sqrt(2);...
     10*sqrt(2) 10 0 10];
     
-testCase.assertEqual(distancePoints(array1, array2), res, 'AbsTol', .01);
+testCase.assertEqual(matGeom.geom2d.distancePoints(array1, array2), res, 'AbsTol', .01);
 
 function testArrayArrayDiag(testCase)
 
@@ -121,7 +121,7 @@ pt3 = [20 20];
 array = [pt1;pt2;pt3];
 
 testCase.assertEqual(...
-    distancePoints(array, array, 'diag'), ...
+    matGeom.geom2d.distancePoints(array, array, 'diag'), ...
     [0;0;0], 'AbsTol', .01);
 
 function testArrayArray3dDiag(testCase)
@@ -134,7 +134,7 @@ array1 = [pt1;pt2;pt3];
 array2 = [pt2;pt3;pt1];
 
 testCase.assertEqual(...
-    distancePoints(array1, array2, 'diag'), ...
+    matGeom.geom2d.distancePoints(array1, array2, 'diag'), ...
     [10;10;10*sqrt(2)], 'AbsTol', .01);
 
 function testArrayArray3dNorm1Diag(testCase)
@@ -147,7 +147,7 @@ array1 = [pt1;pt2;pt3];
 array2 = [pt2;pt3;pt1];
 
 testCase.assertEqual(...
-    distancePoints(array1, array2, 1, 'diag'), ...
+    matGeom.geom2d.distancePoints(array1, array2, 1, 'diag'), ...
     [10;10;20], 'AbsTol', .01);
 
 
@@ -161,5 +161,5 @@ array1 = [pt1;pt2;pt3];
 array2 = [pt2;pt3;pt1];
 
 testCase.assertEqual(...
-    distancePoints(array1, array2, inf, 'diag'), ...
+    matGeom.geom2d.distancePoints(array1, array2, inf, 'diag'), ...
     [10;10;10], 'AbsTol', .01);

@@ -19,18 +19,18 @@ test_suite = functiontests(localfunctions);
 function testTranslation(testCase) %#ok<*DEFNU>
 v0 = [1 2 3];
 v  = [4 5 6];
-trans = createTranslation3d(v);
+trans = matGeom.geom3d.createTranslation3d(v);
 
-vt = transformVector3d(v0, trans);
+vt = matGeom.geom3d.transformVector3d(v0, trans);
 ctrl = v0;
 testCase.assertEqual(ctrl, vt, 'AbsTol', .01);
 
 
 function testRotationOx(testCase)
 v0 = [10 20 30];
-trans = createRotationOx([10 10 10], pi/2);
+trans = matGeom.geom3d.createRotationOx([10 10 10], pi/2);
 
-vt = transformVector3d(v0, trans);
+vt = matGeom.geom3d.transformVector3d(v0, trans);
 ctrl = [10 -30 20];
 testCase.assertEqual(ctrl, vt, 'AbsTol', .01);
 

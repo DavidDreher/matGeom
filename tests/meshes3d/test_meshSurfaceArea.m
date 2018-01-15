@@ -20,8 +20,8 @@ test_suite = functiontests(localfunctions);
 
 function test_Cube(testCase) %#ok<*DEFNU>
 
-[v, e, f] = createCube; %#ok<ASGLU>
-area = meshSurfaceArea(v, f);
+[v, e, f] = matGeom.meshes3d.createCube; %#ok<ASGLU>
+area = matGeom.meshes3d.meshSurfaceArea(v, f);
 
 exp = 6;
 testCase.assertEqual(exp, area, 'AbsTol', .1);
@@ -29,8 +29,8 @@ testCase.assertEqual(exp, area, 'AbsTol', .1);
 
 function test_Octahedron(testCase)
 
-[v, e, f] = createOctahedron(); %#ok<ASGLU>
-area = meshSurfaceArea(v, f);
+[v, e, f] = matGeom.meshes3d.createOctahedron(); %#ok<ASGLU>
+area = matGeom.meshes3d.meshSurfaceArea(v, f);
 
 a = sqrt(2);
 exp = 2 * sqrt(3) * a * a;

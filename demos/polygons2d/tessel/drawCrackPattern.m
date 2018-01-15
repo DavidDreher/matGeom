@@ -34,7 +34,7 @@ points = [x y];
 angles = rand(Np, 1)*pi;
 
 % compute crack pattern
-edges = crackPattern(box, points, angles);
+edges = matGeom.geom2d.crackPattern(box, points, angles);
 
 
 %% Draw Result
@@ -44,8 +44,8 @@ figure(1); clf;
 axis(window);hold on;
 
 % draw diagram
-drawEdge(edges);
-drawPoint(points, 'bo');
+matGeom.geom2d.drawEdge(edges);
+matGeom.geom2d.drawPoint(points, 'bo');
 
 % clean up window
 set(gca, 'box', 'on');

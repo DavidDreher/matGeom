@@ -21,7 +21,7 @@ test_suite = functiontests(localfunctions);
 function testGraph02(testCase) %#ok<*DEFNU>
 
 [nodes, edges] = createTestGraph02;
-r = graphRadius(nodes, edges);
+r = matGeom.graphs.graphRadius(nodes, edges);
 
 exp = 3;
 testCase.assertEqual(exp, r);

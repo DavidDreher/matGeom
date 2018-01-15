@@ -21,7 +21,7 @@ function test_SimpleIntersect(testCase) %#ok<*DEFNU>
 % Test on a gamma-shaped polyline
 
 poly = [0 0;0 10;20 10;20 20;10 20;10 0];
-res = polylineSelfIntersections(poly);
+res = matGeom.polygons2d.polylineSelfIntersections(poly);
 exp = [10 10];
 
 testCase.assertEqual(exp, res, 'AbsTol', .01);
@@ -31,12 +31,12 @@ function test_S_Shape(testCase)
 
 poly = [10 0;0 0;0 10;20 10;20 20;10 20];
 
-res = polylineSelfIntersections(poly);
+res = matGeom.polygons2d.polylineSelfIntersections(poly);
 exp = zeros(0, 2);
 testCase.assertEqual(exp, res);
 
 
-res = polylineSelfIntersections(poly, 'closed');
+res = matGeom.polygons2d.polylineSelfIntersections(poly, 'closed');
 exp = [10 10];
 testCase.assertEqual(exp, res, 'AbsTol', .01);
 

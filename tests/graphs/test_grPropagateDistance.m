@@ -27,7 +27,7 @@ e0 = [1 2;1 6; 2 3;3 4;4 5;5 6];
 % weights of edges
 l0 = [2 5 2 2 2 5]';
 % distance of node number 5 should be 8 (four times 2)
-dists = grPropagateDistance(n0, e0, 1, l0);
+dists = matGeom.graphs.grPropagateDistance(n0, e0, 1, l0);
 testCase.assertEqual(8, dists(5));
 
 

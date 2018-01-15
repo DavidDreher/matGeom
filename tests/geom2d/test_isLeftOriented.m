@@ -21,7 +21,7 @@ function test_HorizLeft(testCase) %#ok<*DEFNU>
 line = [10 20 3 0];
 p1 = [15 25];
 
-testCase.assertTrue(isLeftOriented(p1, line));
+testCase.assertTrue(matGeom.geom2d.isLeftOriented(p1, line));
 
 
 function test_HorizRight(testCase) %#ok<*DEFNU>
@@ -29,7 +29,7 @@ function test_HorizRight(testCase) %#ok<*DEFNU>
 line = [10 20 3 0];
 p1 = [15 5];
 
-testCase.assertFalse(isLeftOriented(p1, line));
+testCase.assertFalse(matGeom.geom2d.isLeftOriented(p1, line));
 
 
 function test_PointArray(testCase) %#ok<*DEFNU>
@@ -40,7 +40,7 @@ pts = [15 25; 15 15; 15 05];
 
 % expect 3-by-1 array
 exp = [true; false; false];
-testCase.assertEqual(exp, isLeftOriented(pts, line));
+testCase.assertEqual(exp, matGeom.geom2d.isLeftOriented(pts, line));
 
 
 function test_LineArray(testCase)
@@ -57,4 +57,4 @@ pt = [21.1 32.2];
 % expect 1-by-4 array
 exp = [true false true true];
 
-testCase.assertEqual(exp, isLeftOriented(pt, lines));
+testCase.assertEqual(exp, matGeom.geom2d.isLeftOriented(pt, lines));

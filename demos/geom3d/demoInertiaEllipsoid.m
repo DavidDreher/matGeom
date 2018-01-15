@@ -29,15 +29,15 @@ sizes  = [70 40 10];
 orient = [50 30 30];
 
 % transform points to make a gaussian cloud
-transfo = composeTransforms3d(...
-    createScaling3d(sizes), ...
-    eulerAnglesToRotation3d(orient), ...
-    createTranslation3d(center));
-points = transformPoint3d(points, transfo);
+transfo = matGeom.geom3d.composeTransforms3d(...
+    matGeom.geom3d.createScaling3d(sizes), ...
+    matGeom.geom3d.eulerAnglesToRotation3d(orient), ...
+    matGeom.geom3d.createTranslation3d(center));
+points = matGeom.geom3d.transformPoint3d(points, transfo);
 
 % display data
 figure;
-drawPoint3d(points, '.');
+matGeom.geom3d.drawPoint3d(points, '.');
 hold on;
 axis equal;
 view([80 -10]);
@@ -46,15 +46,15 @@ view([80 -10]);
 %% Inertia ellipsoid computation and display
 
 % Fit a 3D inertia ellipsoid to data
-elli = inertiaEllipsoid(points);
+elli = matGeom.geom3d.inertiaEllipsoid(points);
 
 % draw the ellipsoid with transparency
-drawEllipsoid(elli, 'FaceColor', 'g', 'FaceAlpha', .5);
+matGeom.geom3d.drawEllipsoid(elli, 'FaceColor', 'g', 'FaceAlpha', .5);
 
 
 %% Add ellipses and main axes
 
-drawEllipsoid(elli, 'FaceColor', 'g', 'FaceAlpha', .5, ...
+matGeom.geom3d.drawEllipsoid(elli, 'FaceColor', 'g', 'FaceAlpha', .5, ...
           'drawEllipses', true, 'EllipseColor', 'b', 'EllipseWidth', 2, ...
           'drawAxes', true);
       

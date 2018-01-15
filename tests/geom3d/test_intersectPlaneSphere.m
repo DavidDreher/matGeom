@@ -24,9 +24,9 @@ center = [10 20 30];
 radius = 50;
 sphere = [center radius];
 
-plane = createPlane(center, [6 0 0]);
+plane = matGeom.geom3d.createPlane(center, [6 0 0]);
 
-circle = intersectPlaneSphere(plane, sphere);
+circle = matGeom.geom3d.intersectPlaneSphere(plane, sphere);
 
 exp = [center radius 90 0 0];
 testCase.assertEqual(exp, circle);
@@ -40,9 +40,9 @@ radius = 50;
 sphere = [center radius];
 
 center2 = center + [radius/2 0 0];
-plane = createPlane(center2, [6 0 0]);
+plane = matGeom.geom3d.createPlane(center2, [6 0 0]);
 
-circle = intersectPlaneSphere(plane, sphere);
+circle = matGeom.geom3d.intersectPlaneSphere(plane, sphere);
 
 radius2 = radius * sqrt(3) / 2;
 exp = [center2 radius2 90 0 0];
@@ -56,9 +56,9 @@ center = [10 20 30];
 radius = 50;
 sphere = [center radius];
 
-plane = createPlane(center, [0 6 0]);
+plane = matGeom.geom3d.createPlane(center, [0 6 0]);
 
-circle = intersectPlaneSphere(plane, sphere);
+circle = matGeom.geom3d.intersectPlaneSphere(plane, sphere);
 
 exp = [center radius 90 90 0];
 testCase.assertEqual(exp, circle, 'AbsTol', .01);
@@ -72,9 +72,9 @@ radius = 50;
 sphere = [center radius];
 
 center2 = center + [0 radius/2 0];
-plane = createPlane(center2, [0 6 0]);
+plane = matGeom.geom3d.createPlane(center2, [0 6 0]);
 
-circle = intersectPlaneSphere(plane, sphere);
+circle = matGeom.geom3d.intersectPlaneSphere(plane, sphere);
 
 radius2 = radius * sqrt(3) / 2;
 exp = [center2 radius2 90 90 0];
@@ -88,9 +88,9 @@ center = [10 20 30];
 radius = 50;
 sphere = [center radius];
 
-plane = createPlane(center, [0 0 6]);
+plane = matGeom.geom3d.createPlane(center, [0 0 6]);
 
-circle = intersectPlaneSphere(plane, sphere);
+circle = matGeom.geom3d.intersectPlaneSphere(plane, sphere);
 
 exp = [center radius 0 0 0];
 testCase.assertEqual(exp, circle, 'AbsTol', .01);
@@ -104,9 +104,9 @@ radius = 50;
 sphere = [center radius];
 
 center2 = center + [0 0 radius/2];
-plane = createPlane(center2, [0 0 6]);
+plane = matGeom.geom3d.createPlane(center2, [0 0 6]);
 
-circle = intersectPlaneSphere(plane, sphere);
+circle = matGeom.geom3d.intersectPlaneSphere(plane, sphere);
 
 radius2 = radius * sqrt(3) / 2;
 exp = [center2 radius2 0 0 0];

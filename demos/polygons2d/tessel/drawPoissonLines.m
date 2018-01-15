@@ -34,7 +34,7 @@ theta = 2*pi*rand(Nl, 1);
 rho   = rhoMax*rand(Nl, 1);
 
 % convert to parametric representation
-lines = createLine(rho, theta);
+lines = matGeom.geom2d.createLine(rho, theta);
 
 
 %% draw lines
@@ -45,7 +45,7 @@ axis([-100 100 -100 100]);
 hold on;
 
 % draw Lines, automatically clipped
-drawLine(lines);
+matGeom.geom2d.drawLine(lines);
 
 % title
 title(sprintf('poisson lines, with density %f', lambdaRho));
@@ -55,7 +55,7 @@ title(sprintf('poisson lines, with density %f', lambdaRho));
 % detect intersections
 pts = zeros(0, 2);
 for i=1:size(lines, 1)-1
-    pts = [pts ; intersectLines(lines(i,:), lines(i+1:end, :))];
+    pts = [pts ; matGeom.geom2d.intersectLines(lines(i,:), lines(i+1:end, :))];
 end
 
 % remove cases with parallel cases (should not appear, but ...)
@@ -63,6 +63,6 @@ pts = pts(isfinite(pts(:,1)), :);
 
 % draw points on image
 hold on;
-drawPoint(pts, 'ro');
+matGeom.geom2d.drawPoint(pts, 'ro');
 
 

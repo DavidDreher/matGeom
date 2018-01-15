@@ -34,14 +34,14 @@ origin = [0 0 0];
 sphere = [origin 1];
 
 % extract vertices, edges, and faces of soccerball polyhedron
-[vertices, edges, faces] = createSoccerBall;
+[vertices, edges, faces] = matGeom.meshes3d.createSoccerBall;
 
 % prepare figure
 figure(1); clf; hold on;
 axis equal;
 
 % draw the polyhedron as basis
-drawPolyhedron(vertices, faces);
+matGeom.meshes3d.drawPolyhedron(vertices, faces);
 
 
 %% Draw Faces
@@ -71,7 +71,7 @@ for f = 1:length(faces)
         vertex2 = vertices(faceVertices(mod(i, Nvf)+1), :);
         
         % draw a portion of the current face
-        fillSphericalTriangle(sphere, faceCenter, vertex1, vertex2, ...
+        matGeom.geom3d.fillSphericalTriangle(sphere, faceCenter, vertex1, vertex2, ...
             'faceColor', color);
     end
 end
@@ -86,14 +86,14 @@ for i = 1:size(edges, 1)
     point2  = vertices(edges(i, 2), :);
     
     % compute plane containing current edge
-    plane   = createPlane(origin, point1, point2);
+    plane   = matGeom.geom3d.createPlane(origin, point1, point2);
     
     % intersection of the plane with unit sphere
-    circle  = intersectPlaneSphere(plane, sphere);
+    circle  = matGeom.geom3d.intersectPlaneSphere(plane, sphere);
     
     % find the position (in degrees) of the 2 vertices on the circle
-    angle1  = circle3dPosition(point1, circle);
-    angle2  = circle3dPosition(point2, circle);
+    angle1  = matGeom.geom3d.circle3dPosition(point1, circle);
+    angle2  = matGeom.geom3d.circle3dPosition(point2, circle);
     
     % ensure angles are in right direction
     if mod(angle2 - angle1 + 360, 360) > 180
@@ -109,7 +109,7 @@ for i = 1:size(edges, 1)
     arc = [circle angle1 angleExtent];
     
     % draw the arc
-    drawCircleArc3d(arc, 'linewidth', 2, 'color', 'k');
+    matGeom.geom3d.drawCircleArc3d(arc, 'linewidth', 2, 'color', 'k');
 end
 
 axis off;

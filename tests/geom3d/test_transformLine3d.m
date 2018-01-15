@@ -22,9 +22,9 @@ v0 = [4 5 6];
 line = [p0 v0];
 
 shift   = [7 8 9];
-trans   = createTranslation3d(shift);
+trans   = matGeom.geom3d.createTranslation3d(shift);
 
-linet   = transformLine3d(line, trans);
+linet   = matGeom.geom3d.transformLine3d(line, trans);
 ctrl    = [p0+shift v0];
 testCase.assertEqual(ctrl, linet, 'AbsTol', .01);
 
@@ -32,15 +32,15 @@ testCase.assertEqual(ctrl, linet, 'AbsTol', .01);
 function testRotationOx(testCase)
 p1 = [1 2 3];
 p2 = [4 5 6];
-line = createLine3d(p1, p2);
+line = matGeom.geom3d.createLine3d(p1, p2);
 
-trans   = createRotationOx([2 3 1], pi/3);
+trans   = matGeom.geom3d.createRotationOx([2 3 1], pi/3);
 
-linet   = transformLine3d(line, trans);
+linet   = matGeom.geom3d.transformLine3d(line, trans);
 
-p1t     = transformPoint3d(p1, trans);
-p2t     = transformPoint3d(p2, trans);
-ctrl    = createLine3d(p1t, p2t);
+p1t     = matGeom.geom3d.transformPoint3d(p1, trans);
+p2t     = matGeom.geom3d.transformPoint3d(p2, trans);
+ctrl    = matGeom.geom3d.createLine3d(p1t, p2t);
 
 testCase.assertEqual(ctrl, linet, 'AbsTol', .01);
 

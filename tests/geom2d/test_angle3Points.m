@@ -22,7 +22,7 @@ function testSimple(testCase) %#ok<*DEFNU>
 p1 = [10 0];
 p2 = [0 0];
 p3 = [0 10];
-angle = angle3Points(p1, p2, p3);
+angle = matGeom.geom2d.angle3Points(p1, p2, p3);
 testCase.assertEqual(pi/2, angle, 'AbsTol', .01);
 
 
@@ -32,7 +32,7 @@ function testBundledInput(testCase)
 p1 = [10 0];
 p2 = [0 0];
 p3 = [0 10];
-angle = angle3Points([p1; p2; p3]);
+angle = matGeom.geom2d.angle3Points([p1; p2; p3]);
 testCase.assertEqual(pi/2, angle, 'AbsTol', .01);
 
 function testArray(testCase)
@@ -41,7 +41,7 @@ function testArray(testCase)
 p1 = [10 0; 20 0];
 p2 = [0 0;0 0];
 p3 = [0 10; 0 20];
-angle = angle3Points(p1, p2, p3);
+angle = matGeom.geom2d.angle3Points(p1, p2, p3);
 
 testCase.assertEqual(2, size(angle, 1));
 testCase.assertEqual([pi/2;pi/2], angle, 'AbsTol', .01);

@@ -21,7 +21,7 @@ test_suite = functiontests(localfunctions);
 function testGraph02(testCase) %#ok<*DEFNU>
 
 [nodes, edges] = createTestGraph02;
-diam = graphDiameter(nodes, edges);
+diam = matGeom.graphs.graphDiameter(nodes, edges);
 
 exp = 6;
 testCase.assertEqual(exp, diam);

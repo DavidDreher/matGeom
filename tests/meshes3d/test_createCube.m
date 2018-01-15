@@ -19,12 +19,12 @@ test_suite = functiontests(localfunctions);
 
 function testCreation(testCase) %#ok<*DEFNU>
 
-createCube();
+matGeom.meshes3d.createCube();
 
 
 function testVEFCreation(testCase)
 
-[v, e, f] = createCube();
+[v, e, f] = matGeom.meshes3d.createCube();
 testCase.assertTrue(~isempty(v));
 testCase.assertTrue(~isempty(e));
 testCase.assertTrue(~isempty(f));
@@ -37,7 +37,7 @@ testCase.assertEqual(nf, length(f));
 
 function testVFCreation(testCase)
 
-[v, f] = createCube();
+[v, f] = matGeom.meshes3d.createCube();
 testCase.assertTrue(~isempty(v));
 testCase.assertTrue(~isempty(f));
 
@@ -48,7 +48,7 @@ testCase.assertEqual(nf, length(f));
 
 function testMeshCreation(testCase)
 
-mesh = createCube();
+mesh = matGeom.meshes3d.createCube();
 testCase.assertTrue(isstruct(mesh));
 testCase.assertTrue(isfield(mesh, 'vertices'));
 testCase.assertTrue(isfield(mesh, 'edges'));
@@ -62,12 +62,12 @@ testCase.assertEqual(nf, length(mesh.faces));
 
 function testFacesOutwards(testCase)
 
-[v, e, f] = createCube(); %#ok<ASGLU>
+[v, e, f] = matGeom.meshes3d.createCube(); %#ok<ASGLU>
 
-centro = centroid(v);
-fc  = meshFaceCentroids(v, f);
-fc2 = createVector(centro, fc);
-n   = meshFaceNormals(v, f);
+centro = matGeom.geom2d.centroid(v);
+fc  = matGeom.meshes3d.meshFaceCentroids(v, f);
+fc2 = matGeom.geom2d.createVector(centro, fc);
+n   = matGeom.meshes3d.meshFaceNormals(v, f);
 
 testCase.assertEqual(size(n), size(fc2));
 

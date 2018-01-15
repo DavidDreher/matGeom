@@ -22,7 +22,7 @@ function test_SimpleSquare(testCase) %#ok<*DEFNU>
 
 poly = [0 0;10 0;10 10;0 10];
 
-res = polygonArea(poly);
+res = matGeom.polygons2d.polygonArea(poly);
 exp = 100;
 
 testCase.assertEqual(exp, res);
@@ -31,7 +31,7 @@ function test_ClosedSquare(testCase)
 
 poly = [0 0;10 0;10 10;0 10; 0 0];
 
-res = polygonArea(poly);
+res = matGeom.polygons2d.polygonArea(poly);
 exp = 100;
 
 testCase.assertEqual(exp, res);
@@ -42,7 +42,7 @@ function test_RevertedSquare(testCase)
 
 poly = [0 0;0 10;10 10;10 0];
 
-res = polygonArea(poly);
+res = matGeom.polygons2d.polygonArea(poly);
 exp = -100;
 
 testCase.assertEqual(exp, res);
@@ -56,7 +56,7 @@ poly2 = [20 20;20 40;30 40;30 20];  % inner ring 1
 poly3 = [40 20;40 40;50 40;50 20];  % inner ring 2
 poly = {poly1, poly2, poly3};
 
-res = polygonArea(poly);
+res = matGeom.polygons2d.polygonArea(poly);
 testCase.assertEqual(1, length(res));
 
 exp = 16 * 100;
@@ -71,7 +71,7 @@ poly2 = [20 20;20 40;30 40;30 20];  % inner ring 1
 poly3 = [40 20;40 40;50 40;50 20];  % inner ring 2
 poly = [poly1; NaN NaN; poly2; NaN NaN; poly3];
 
-res = polygonArea(poly);
+res = matGeom.polygons2d.polygonArea(poly);
 testCase.assertEqual(1, length(res));
 
 exp = 16 * 100;

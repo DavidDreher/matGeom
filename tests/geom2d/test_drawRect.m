@@ -25,7 +25,7 @@ h = 50;
 
 hf = 101;
 figure(hf); clf;
-hr = drawRect([x0 y0 w h]);
+hr = matGeom.geom2d.drawRect([x0 y0 w h]);
 xth = [x0 x0+w x0+w x0 x0];
 yth = [y0 y0 y0+h y0+h y0];
 testCase.assertEqual(xth, get(hr, 'XData'), 'AbsTol', .01);

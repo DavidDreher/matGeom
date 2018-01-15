@@ -26,7 +26,7 @@ n0 = [10 10;20 10; 30 10;40 10;50 10;30 40];
 e0 = [1 2;1 6; 2 3;3 4;4 5;5 6];
 % weights of edges
 l0 = [2 5 2 2 2 5]';
-path = grShortestPath(n0, e0, 1, 5, l0);
+path = matGeom.graphs.grShortestPath(n0, e0, 1, 5, l0);
 
 expPath = [1 2 3 4 5]';
 testCase.assertEqual(expPath, path, 'AbsTol', .01);

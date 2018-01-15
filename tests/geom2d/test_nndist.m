@@ -25,7 +25,7 @@ p1 = [10 10];
 p2 = [20 10];
 pts = [p1 ; p2];
 
-[dists, inds] = nndist(pts);
+[dists, inds] = matGeom.geom2d.nndist(pts);
 
 testCase.assertEqual([10; 10], dists, 'AbsTol', .01);
 testCase.assertEqual([2;1], inds, 'AbsTol', .01);
@@ -40,7 +40,7 @@ p3 = [20 30];
 p4 = [50 30];
 pts = [p1 ; p2 ; p3 ; p4];
 
-[dists, inds] = nndist(pts);
+[dists, inds] = matGeom.geom2d.nndist(pts);
 
 testCase.assertEqual([10; 10; 20; 30], dists, 'AbsTol', .01);
 testCase.assertEqual([2;1;2;3], inds, 'AbsTol', .01);

@@ -24,13 +24,13 @@ p2 = [10 0];
 p3 = [5 10];
 tri = [p1;p2;p3];
 
-res1 = isPointInTriangle([0 0], tri);
+res1 = matGeom.geom2d.isPointInTriangle([0 0], tri);
 testCase.assertTrue(res1);
 
-res2 = isPointInTriangle([5 5], tri);
+res2 = matGeom.geom2d.isPointInTriangle([5 5], tri);
 testCase.assertTrue(res2);
 
-res3 = isPointInTriangle([10 5], tri);
+res3 = matGeom.geom2d.isPointInTriangle([10 5], tri);
 testCase.assertFalse(res3);
 
 function testArray(testCase)
@@ -40,6 +40,6 @@ p2 = [10 0];
 p3 = [5 10];
 tri = [p1;p2;p3];
 
-res = isPointInTriangle([0 0;1 0;0 1], tri);
+res = matGeom.geom2d.isPointInTriangle([0 0;1 0;0 1], tri);
 exp = [true;true;false];
 testCase.assertEqual(exp, res);

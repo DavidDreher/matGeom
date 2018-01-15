@@ -30,7 +30,7 @@ p2  = [0 10 0];
 R   = 5;
 cyl = [p1 p2 R];
 
-pts = intersectLineCylinder(line, cyl);
+pts = matGeom.geom3d.intersectLineCylinder(line, cyl);
 testCase.assertEqual([-R 0 0;R 0 0], pts, 'AbsTol', .01);
 
 function testShifted(testCase)
@@ -52,79 +52,79 @@ v0  = [1 0 0];
 line = [p0 v0];
 
 % compute intersection
-pts     = intersectLineCylinder(line, cyl);
+pts     = matGeom.geom3d.intersectLineCylinder(line, cyl);
 ctrl    = [-R 0 0;R 0 0] + repmat(vect, 2, 1);
 testCase.assertEqual(ctrl, pts, 'AbsTol', .01);
 
 function testTranslated(testCase)
 % shift everything by vector [1 2 3]
 
-trans = createTranslation(1, 2, 3);
+trans = matGeom.geom2d.createTranslation(1, 2, 3);
 
 % cylinder
 p1  = [0 -10 0];
 p2  = [0 10 0];
 R   = 5;
-p1t = transformPoint3d(p1, trans);
-p2t = transformPoint3d(p2, trans);
+p1t = matGeom.geom3d.transformPoint3d(p1, trans);
+p2t = matGeom.geom3d.transformPoint3d(p2, trans);
 cyl = [p1t p2t R];
 
 % line
 p0 = [0 0 0];
 v0 = [1 0 0];
-line = transformLine3d([p0 v0], trans);
+line = matGeom.geom3d.transformLine3d([p0 v0], trans);
 
 % compute intersection
-pts     = intersectLineCylinder(line, cyl);
-ctrl    = transformPoint3d([-R 0 0;R 0 0], trans);
+pts     = matGeom.geom3d.intersectLineCylinder(line, cyl);
+ctrl    = matGeom.geom3d.transformPoint3d([-R 0 0;R 0 0], trans);
 testCase.assertEqual(ctrl, pts, 'AbsTol', .01);
 
 
 function testRotatedOx(testCase)
 % shift everything by vector [1 2 3]
-Rx = createRotationOx([1 2 3], pi/4);
+Rx = matGeom.geom3d.createRotationOx([1 2 3], pi/4);
 trans = Rx;
 
 % cylinder
 p1  = [0 -1 0];
 p2  = [0 1 0];
 R   = 5;
-p1t = transformPoint3d(p1, trans);
-p2t = transformPoint3d(p2, trans);
+p1t = matGeom.geom3d.transformPoint3d(p1, trans);
+p2t = matGeom.geom3d.transformPoint3d(p2, trans);
 cyl = [p1t p2t R];
 
 % line
 p0 = [0 0 0];
 v0 = [1 0 0];
-line = transformLine3d([p0 v0], trans);
+line = matGeom.geom3d.transformLine3d([p0 v0], trans);
 
 % compute intersection
-pts     = intersectLineCylinder(line, cyl);
-ctrl    = transformPoint3d([-R 0 0;R 0 0], trans);
+pts     = matGeom.geom3d.intersectLineCylinder(line, cyl);
+ctrl    = matGeom.geom3d.transformPoint3d([-R 0 0;R 0 0], trans);
 testCase.assertEqual(ctrl, pts, 'AbsTol', .01);
 
 function testRotatedOy(testCase)
 % shift everything by vector [1 2 3]
 
-Rx = createRotationOy([0 0 0], pi/4);
+Rx = matGeom.geom3d.createRotationOy([0 0 0], pi/4);
 trans = Rx;
 
 % cylinder
 p1  = [0 -1 0];
 p2  = [0 1 0];
 R   = 5;
-p1t = transformPoint3d(p1, trans);
-p2t = transformPoint3d(p2, trans);
+p1t = matGeom.geom3d.transformPoint3d(p1, trans);
+p2t = matGeom.geom3d.transformPoint3d(p2, trans);
 cyl = [p1t p2t R];
 
 % line
 p0 = [0 0 0];
 v0 = [1 0 0];
-line = transformLine3d([p0 v0], trans);
+line = matGeom.geom3d.transformLine3d([p0 v0], trans);
 
 % compute intersection
-pts     = intersectLineCylinder(line, cyl);
-ctrl    = transformPoint3d([-R 0 0;R 0 0], trans);
+pts     = matGeom.geom3d.intersectLineCylinder(line, cyl);
+ctrl    = matGeom.geom3d.transformPoint3d([-R 0 0;R 0 0], trans);
 testCase.assertEqual(ctrl, pts, 'AbsTol', .01);
 
 
@@ -132,26 +132,26 @@ function testRotatedOxOy(testCase)
 % Compose two rotations and check results still apply
 
 center = [1 2 3];
-Rx = createRotationOx(center, pi/4);
-Ry = createRotationOy(center, pi/6);
+Rx = matGeom.geom3d.createRotationOx(center, pi/4);
+Ry = matGeom.geom3d.createRotationOy(center, pi/6);
 trans = Rx*Ry;
 
 % cylinder
 p1  = [0 -1 0];
 p2  = [0 1 0];
 R   = 5;
-p1t = transformPoint3d(p1, trans);
-p2t = transformPoint3d(p2, trans);
+p1t = matGeom.geom3d.transformPoint3d(p1, trans);
+p2t = matGeom.geom3d.transformPoint3d(p2, trans);
 cyl = [p1t p2t R];
 
 % line
 p0 = [0 0 0];
 v0 = [1 0 0];
-line = transformLine3d([p0 v0], trans);
+line = matGeom.geom3d.transformLine3d([p0 v0], trans);
 
 % compute intersection
-pts     = intersectLineCylinder(line, cyl);
-ctrl    = transformPoint3d([-R 0 0;R 0 0], trans);
+pts     = matGeom.geom3d.intersectLineCylinder(line, cyl);
+ctrl    = matGeom.geom3d.transformPoint3d([-R 0 0;R 0 0], trans);
 testCase.assertEqual(ctrl, pts, 'AbsTol', .01);
 
 
@@ -171,7 +171,7 @@ R   = 10;
 cyl = [p1 p2 R];
 
 % case of infinite cylinder -> two 'classical' intersections
-pts = intersectLineCylinder(line, cyl, 'type', 'infinite');
+pts = matGeom.geom3d.intersectLineCylinder(line, cyl, 'type', 'infinite');
 testCase.assertEqual([-R 0 -R;R 0 R], pts, 'AbsTol', .01);
 
 function test_TypeOpen(testCase)
@@ -190,7 +190,7 @@ R   = 10;
 cyl = [p1 p2 R];
 
 % case of open cylinder -> no intersection
-pts = intersectLineCylinder(line, cyl, 'type', 'open');
+pts = matGeom.geom3d.intersectLineCylinder(line, cyl, 'type', 'open');
 testCase.assertEmpty(pts);
 
 
@@ -210,5 +210,5 @@ R   = 10;
 cyl = [p1 p2 R];
 
 % case of open cylinder -> no intersection
-pts = intersectLineCylinder(line, cyl, 'type', 'closed');
+pts = matGeom.geom3d.intersectLineCylinder(line, cyl, 'type', 'closed');
 testCase.assertEqual([-H 0 -H;H 0 H], pts, 'AbsTol', .01);

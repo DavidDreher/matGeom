@@ -37,7 +37,7 @@ poly(:,2) = 15-poly(:,2);
 %% Dessin de base
 
 figure(1); clf; hold on; axis equal;
-drawPolygon(poly, 'linewidth', 2);
+matGeom.polygons2d.drawPolygon(poly, 'linewidth', 2);
 axis off;
 
 % save
@@ -47,8 +47,8 @@ print(gcf, 'm02aContour.eps', '-depsc');
 %% Dessine plusieurs contours imbriques
 
 for d = .5:.5:7.5
-    poly2 = expandPolygon(poly, d);
-    drawPolygon(poly2);
+    poly2 = matGeom.polygons2d.expandPolygon(poly, d);
+    matGeom.polygons2d.drawPolygon(poly2);
 end
 
 print(gcf, 'm02aFrontWave.eps', '-depsc');

@@ -26,7 +26,7 @@ p3 = [20 20];
 p4 = [10 20];
 square = [p1;p2;p3;p4];
 
-width = minimumCaliperDiameter(square);
+width = matGeom.polygons2d.minimumCaliperDiameter(square);
 testCase.assertEqual(10, width);
 
 function testRectangle(testCase)
@@ -37,7 +37,7 @@ p3 = [20 50];
 p4 = [10 50];
 square = [p1;p2;p3;p4];
 
-width = minimumCaliperDiameter(square);
+width = matGeom.polygons2d.minimumCaliperDiameter(square);
 testCase.assertEqual(10, width);
 
 function testCross(testCase)
@@ -55,10 +55,10 @@ pts = [...
     50 80; ...
     50 60; ...
     10 60];
-width = minimumCaliperDiameter(pts);
+width = matGeom.polygons2d.minimumCaliperDiameter(pts);
 testCase.assertEqual(60, width);
 
 % try again by shuffling vertices
 pts = pts([ 4 10 6 12 2 11 8 1 5 3 9 7], :);
-width = minimumCaliperDiameter(pts);
+width = matGeom.polygons2d.minimumCaliperDiameter(pts);
 testCase.assertEqual(60, width);

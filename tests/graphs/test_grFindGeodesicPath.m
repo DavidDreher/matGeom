@@ -21,13 +21,13 @@ test_suite = functiontests(localfunctions);
 function testGraph01(testCase) %#ok<*DEFNU>
 
 [nodes, edges] = createTestGraph01;
-path = grFindGeodesicPath(nodes, edges, 3, 8);
+path = matGeom.graphs.grFindGeodesicPath(nodes, edges, 3, 8);
 exp = [4 1 3 10];
 testCase.assertEqual(exp, path);
 
 function testGraph03(testCase)
 
 [nodes, edges] = createTestGraph03;
-path = grFindGeodesicPath(nodes, edges, 1, 12);
+path = matGeom.graphs.grFindGeodesicPath(nodes, edges, 1, 12);
 exp = [1 2 5 7 11 13];
 testCase.assertEqual(exp, path);

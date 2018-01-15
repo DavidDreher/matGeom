@@ -28,7 +28,7 @@ imshow(img == 0);
 %% Curves fitting
 
 % Compute coefficient of fitted curves
-allCoeffs = polynomialCurveSetFit(img, deg);
+allCoeffs = matGeom.polynomialCurves2d.polynomialCurveSetFit(img, deg);
 
 % Displaty segmented image with curves
 figure;
@@ -37,7 +37,7 @@ hold on;
 
 % affiche les courbes en sur-impression
 for i = 1:length(allCoeffs)
-    hc = drawPolynomialCurve([0 1], allCoeffs{i});
+    hc = matGeom.polynomialCurves2d.drawPolynomialCurve([0 1], allCoeffs{i});
     set(hc, 'linewidth', 1);
 end
 title('Skeleton with curves');
@@ -51,7 +51,7 @@ imshow(ones(size(img))); hold on;
 
 % Overlay individual curves
 for i = 1:length(allCoeffs)
-    hc = drawPolynomialCurve([0 1], allCoeffs{i});
+    hc = matGeom.polynomialCurves2d.drawPolynomialCurve([0 1], allCoeffs{i});
     set(hc, 'linewidth', 1);
 end
 title('Only curves');

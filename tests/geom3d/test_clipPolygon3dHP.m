@@ -23,14 +23,14 @@ poly = [...
     12.1519 14.0046 58.5201; ...
     12.0680 18.2066 37.4846; ...
     12.1988 17.9510 37.4621];
-plane = createPlane([0 0 0], [deg2rad(-75) deg2rad(0)]);
-clipped = clipPolygon3dHP(poly, plane) ;
+plane = matGeom.geom3d.createPlane([0 0 0], [matGeom.geom2d.deg2rad(-75) matGeom.geom2d.deg2rad(0)]);
+clipped = matGeom.geom3d.clipPolygon3dHP(poly, plane) ;
 
 testCase.assertEqual(4, size(clipped, 1));
 
 
 poly = poly([1:end 1], :);
-clipped = clipPolygon3dHP(poly, plane) ;
+clipped = matGeom.geom3d.clipPolygon3dHP(poly, plane) ;
 testCase.assertEqual(4, size(clipped, 1));
 
 
@@ -41,13 +41,13 @@ poly = [...
     12.1988 17.9510 37.4621; ...
     12.1519 14.0046 58.5201 ];
 
-plane = createPlane([0 0 0], [deg2rad(-75) deg2rad(0)]);
-clipped = clipPolygon3dHP(poly, plane) ;
+plane = matGeom.geom3d.createPlane([0 0 0], [matGeom.geom2d.deg2rad(-75) matGeom.geom2d.deg2rad(0)]);
+clipped = matGeom.geom3d.clipPolygon3dHP(poly, plane) ;
 
 testCase.assertEqual(4, size(clipped, 1));
 
 poly = poly([1:end 1], :);
-clipped = clipPolygon3dHP(poly, plane) ;
+clipped = matGeom.geom3d.clipPolygon3dHP(poly, plane) ;
 testCase.assertEqual(4, size(clipped, 1));
 
 
@@ -58,13 +58,13 @@ poly = [...
     12.1519 14.0046 58.5201; ...
     12.0680 18.2066 37.4846];
 
-plane = createPlane([0 0 0], [deg2rad(-75) deg2rad(0)]);
-clipped = clipPolygon3dHP(poly, plane) ;
+plane = matGeom.geom3d.createPlane([0 0 0], [matGeom.geom2d.deg2rad(-75) matGeom.geom2d.deg2rad(0)]);
+clipped = matGeom.geom3d.clipPolygon3dHP(poly, plane) ;
 
 testCase.assertEqual(4, size(clipped, 1));
 
 poly = poly([1:end 1], :);
-clipped = clipPolygon3dHP(poly, plane) ;
+clipped = matGeom.geom3d.clipPolygon3dHP(poly, plane) ;
 testCase.assertEqual(4, size(clipped, 1));
 
 
@@ -77,9 +77,9 @@ poly = [...
     10 80 30; ...
     ];
 
-plane = createPlane([30 60 30], [1 0 0]);
+plane = matGeom.geom3d.createPlane([30 60 30], [1 0 0]);
 
-clipped = clipPolygon3dHP(poly, plane) ;
+clipped = matGeom.geom3d.clipPolygon3dHP(poly, plane) ;
 testCase.assertEqual(4, size(clipped, 1));
 
 
@@ -92,9 +92,9 @@ poly = [...
     10 20 30; ...
     ];
 
-plane = createPlane([30 60 30], [1 0 0]);
+plane = matGeom.geom3d.createPlane([30 60 30], [1 0 0]);
 
-clipped = clipPolygon3dHP(poly, plane) ;
+clipped = matGeom.geom3d.clipPolygon3dHP(poly, plane) ;
 testCase.assertEqual(4, size(clipped, 1));
 
 
@@ -107,7 +107,7 @@ poly = [...
     50 80 30; ...
     ];
 
-plane = createPlane([30 60 30], [1 0 0]);
+plane = matGeom.geom3d.createPlane([30 60 30], [1 0 0]);
 
-clipped = clipPolygon3dHP(poly, plane) ;
+clipped = matGeom.geom3d.clipPolygon3dHP(poly, plane) ;
 testCase.assertEqual(4, size(clipped, 1));

@@ -32,12 +32,12 @@ germ0  = [.5 .5 .5];
 
 % create random germs, and add corners of unit cube to ensure finiteness of
 % voronoi pattern
-[corners faces] = createCube; %#ok<NASGU>
+[corners faces] = matGeom.meshes3d.createCube; %#ok<NASGU>
 germs   = [germ0;rand(10, 3);corners];
 
 % dispay the germs
 figure(1); clf; hold on;
-drawPoint3d(germs);
+matGeom.geom3d.drawPoint3d(germs);
 
 % graphical settings
 view(3);
@@ -57,7 +57,7 @@ vertices = V(indVert, :);
 K = convhulln(vertices);
 
 % draw the polyhedron
-drawMesh(vertices, K);
+matGeom.meshes3d.drawMesh(vertices, K);
 
 
 %% Compute and display minimal polyhedron
@@ -66,15 +66,15 @@ drawMesh(vertices, K);
 % new faces are 3D polygons
 % K2 is a cell array, each cell containing a row vector with indices of
 % 'points' corresponding to vertices of each face.
-[V2 F2] = mergeCoplanarFaces(vertices, K);
+[V2 F2] = matGeom.meshes3d.mergeCoplanarFaces(vertices, K);
 
 % display the germs
 figure(2); clf; hold on;
 set(gcf, 'renderer', 'opengl');
-drawPoint3d(germs);
+matGeom.geom3d.drawPoint3d(germs);
 
 % draw the polyhedron
-drawMesh(V2, F2);
+matGeom.meshes3d.drawMesh(V2, F2);
 
 % graphical settings
 view(3);

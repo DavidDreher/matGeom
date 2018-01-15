@@ -21,6 +21,6 @@ test_suite = functiontests(localfunctions);
 function testBasic(testCase) %#ok<*DEFNU>
 box1 = [5 20 5 30 10 50];
 box2 = [0 15 0 15 0 20];
-box = mergeBoxes3d(box1, box2);
+box = matGeom.geom3d.mergeBoxes3d(box1, box2);
 testCase.assertEqual([0 20 0 30 0 50], box, 'AbsTol', .01);
 

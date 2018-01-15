@@ -20,11 +20,11 @@ function testShiftedCenter(testCase) %#ok<*DEFNU>
 center = [10 20 30];
 theta = pi/3;
 
-trans = createRotationOz(center, theta);
+trans = matGeom.geom3d.createRotationOz(center, theta);
 
-t1 = createTranslation3d(-center);
-r0 = createRotationOz(theta);
-t2 = createTranslation3d(center);
+t1 = matGeom.geom3d.createTranslation3d(-center);
+r0 = matGeom.geom3d.createRotationOz(theta);
+t2 = matGeom.geom3d.createTranslation3d(center);
 ctrl = t2*r0*t1;
 
 testCase.assertEqual(ctrl, trans, 'AbsTol', .01);

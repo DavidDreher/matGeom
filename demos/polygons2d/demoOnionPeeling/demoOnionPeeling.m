@@ -24,16 +24,16 @@ points = rand(50, 2);
 
 % display
 figure; hold on;
-drawPoint(points, '.');
+matGeom.geom2d.drawPoint(points, '.');
 
 
 %% Convex hull
 
 % compute hull
-hull = convexHull(points);
+hull = matGeom.polygons2d.convexHull(points);
 
 % display
-drawPolygon(hull, 'linewidth', 2);
+matGeom.polygons2d.drawPolygon(hull, 'linewidth', 2);
 
 
 %% Onion peeling
@@ -46,7 +46,7 @@ nLayers = 0;
 % is no more point on the hull
 while size(points, 1) > 2
     % compute current layer
-    [hull inds] = convexHull(points);
+    [hull inds] = matGeom.polygons2d.convexHull(points);
     
     % add a layer
     nLayers = nLayers + 1;
@@ -58,6 +58,6 @@ end
 
 % draw resulting layers
 for i = 1:nLayers
-    drawPolygon(layers{i});
+    matGeom.polygons2d.drawPolygon(layers{i});
 end
 

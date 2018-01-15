@@ -26,4 +26,4 @@ p4 = [10 20];
 square = [p1;p2;p3;p4];
 exp = 30;
 
-testCase.assertEqual(exp, polylineLength(square));
+testCase.assertEqual(exp, matGeom.polygons2d.polylineLength(square));

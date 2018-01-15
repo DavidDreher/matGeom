@@ -19,49 +19,49 @@ test_suite = functiontests(localfunctions);
 function testDefault(testCase) %#ok<*DEFNU>
 
 theta = pi/2;
-testCase.assertEqual(theta, normalizeAngle(theta), 'AbsTol', .01);
+testCase.assertEqual(theta, matGeom.geom2d.normalizeAngle(theta), 'AbsTol', .01);
 
 theta = pi;
-testCase.assertEqual(theta, normalizeAngle(theta), 'AbsTol', .01);
+testCase.assertEqual(theta, matGeom.geom2d.normalizeAngle(theta), 'AbsTol', .01);
 
 theta = 3*pi/2;
-testCase.assertEqual(theta, normalizeAngle(theta), 'AbsTol', .01);
+testCase.assertEqual(theta, matGeom.geom2d.normalizeAngle(theta), 'AbsTol', .01);
 
 function testPiCentered(testCase)
 
 theta = pi/2;
-testCase.assertEqual(theta, normalizeAngle(theta, pi), 'AbsTol', .01);
+testCase.assertEqual(theta, matGeom.geom2d.normalizeAngle(theta, pi), 'AbsTol', .01);
 
 theta = pi;
-testCase.assertEqual(theta, normalizeAngle(theta, pi), 'AbsTol', .01);
+testCase.assertEqual(theta, matGeom.geom2d.normalizeAngle(theta, pi), 'AbsTol', .01);
 
 theta = 3*pi/2;
-testCase.assertEqual(theta, normalizeAngle(theta, pi), 'AbsTol', .01);
+testCase.assertEqual(theta, matGeom.geom2d.normalizeAngle(theta, pi), 'AbsTol', .01);
 
 
 function testVector(testCase)
 
 theta = linspace(0, 2*pi-.1, 100);
-testCase.assertEqual(theta, normalizeAngle(theta), 'AbsTol', .01);
+testCase.assertEqual(theta, matGeom.geom2d.normalizeAngle(theta), 'AbsTol', .01);
 
 
 function testZeroCentered(testCase)
 
 theta = 0;
-testCase.assertEqual(theta, normalizeAngle(theta, 0), 'AbsTol', .01);
+testCase.assertEqual(theta, matGeom.geom2d.normalizeAngle(theta, 0), 'AbsTol', .01);
 
 theta = pi/2;
-testCase.assertEqual(theta, normalizeAngle(theta, 0), 'AbsTol', .01);
+testCase.assertEqual(theta, matGeom.geom2d.normalizeAngle(theta, 0), 'AbsTol', .01);
 
 theta = -pi;
-testCase.assertEqual(theta, normalizeAngle(theta, 0), 'AbsTol', .01);
+testCase.assertEqual(theta, matGeom.geom2d.normalizeAngle(theta, 0), 'AbsTol', .01);
 
 theta = 7*pi/2;
-testCase.assertEqual(-pi/2, normalizeAngle(theta, 0), 'AbsTol', .01);
+testCase.assertEqual(-pi/2, matGeom.geom2d.normalizeAngle(theta, 0), 'AbsTol', .01);
 
 function testVectorZeroCentered(testCase)
 
 theta = linspace(-pi+.1, pi-.1, 100);
-testCase.assertEqual(theta, normalizeAngle(theta, 0), 'AbsTol', .01);
+testCase.assertEqual(theta, matGeom.geom2d.normalizeAngle(theta, 0), 'AbsTol', .01);
 
 

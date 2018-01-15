@@ -20,14 +20,14 @@ test_suite = functiontests(localfunctions);
 function test_Simple(testCase) %#ok<*DEFNU>
 % Test for a simple polygon
 poly = [0 0 ; 10 0;5 10;15 15;5 20;-5 10];
-tri = triangulatePolygon(poly);
+tri = matGeom.polygons2d.triangulatePolygon(poly);
 
 testCase.assertEqual([4 3], size(tri));
 
 function test_Constrained(testCase)
 % Polygon whose two vertices are close but not in the same triangle
 poly = [10 10;80 10; 140 20;30 20; 80 30; 140 30; 120 40;10 40];
-tri = triangulatePolygon(poly);
+tri = matGeom.polygons2d.triangulatePolygon(poly);
 
 testCase.assertEqual([6 3], size(tri));
 

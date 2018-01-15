@@ -19,18 +19,18 @@ test_suite = functiontests(localfunctions);
 function testSingle(testCase) %#ok<*DEFNU>
 edge = [1 2 3 4 5 6];
 figure(1); clf;
-drawEdge3d(edge);
+matGeom.geom3d.drawEdge3d(edge);
 close(1);
 
 function testSingleArray(testCase)
 edges = [1 2 3 4 5 6;3 2 3 6 5 6;1 4 3 4 7 6;1 4 5 4 7 8];
 figure(1); clf;
-drawEdge3d(edges);
+matGeom.geom3d.drawEdge3d(edges);
 close(1);
 
 function testTwoPointArrays(testCase)
 p1 = [1 2 3;3 2 3;1 4 3;1 4 5];
 p2 = [4 5 6;6 5 6;4 7 6;4 7 8];
 figure(1); clf;
-drawEdge3d(p1, p2);
+matGeom.geom3d.drawEdge3d(p1, p2);
 close(1);

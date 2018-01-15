@@ -21,7 +21,7 @@ function testCreateLine2Points(testCase) %#ok<*DEFNU>
 
 p1 = [1 1];
 p2 = [2 3];
-line = createLine(p1, p2);
+line = matGeom.geom2d.createLine(p1, p2);
 
 testCase.assertEqual(p1, line(1,1:2), 'AbsTol', .01);
 testCase.assertEqual(p2-p1, line(1,3:4), 'AbsTol', .01);
@@ -30,7 +30,7 @@ function testCreateLine2Arrays(testCase)
 
 p1 = [1 1;1 1];
 p2 = [2 3;2 4];
-line = createLine(p1, p2);
+line = matGeom.geom2d.createLine(p1, p2);
 
 testCase.assertEqual(2, size(line, 1), 'AbsTol', .01);
 testCase.assertEqual(p1, line(:,1:2), 'AbsTol', .01);

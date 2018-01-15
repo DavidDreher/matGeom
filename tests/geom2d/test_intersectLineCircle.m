@@ -23,7 +23,7 @@ function testIntersect(testCase) %#ok<*DEFNU>
 center = [10 0];
 l1 = [center 0 1];
 c1 = [center 5];
-pts = intersectLineCircle(l1, c1);
+pts = matGeom.geom2d.intersectLineCircle(l1, c1);
 exp = [10 -5; 10 5];
 testCase.assertEqual(exp, pts, 'AbsTol', .01);
 
@@ -32,7 +32,7 @@ function testTangent(testCase)
 center = [10 0];
 l1 = [15 0 0 1];
 c1 = [center 5];
-pts = intersectLineCircle(l1, c1);
+pts = matGeom.geom2d.intersectLineCircle(l1, c1);
 exp = [15 0;15 0];
 testCase.assertEqual(exp, pts, 'AbsTol', .01);
 
@@ -41,7 +41,7 @@ function testNoIntersect(testCase)
 center = [10 0];
 l1 = [16 0 0 1];
 c1 = [center 5];
-pts = intersectLineCircle(l1, c1);
+pts = matGeom.geom2d.intersectLineCircle(l1, c1);
 exp = [NaN NaN;NaN NaN];
 testCase.assertEqual(exp, pts);
 

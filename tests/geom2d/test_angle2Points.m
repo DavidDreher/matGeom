@@ -21,10 +21,10 @@ function testHoriz(testCase) %#ok<*DEFNU>
 
 p1 = [0 0];
 p2 = [10 0];
-angle = angle2Points(p1, p2);
+angle = matGeom.geom2d.angle2Points(p1, p2);
 testCase.assertEqual(0, angle, 'AbsTol', .01);
 
-angle = angle2Points(p2, p1);
+angle = matGeom.geom2d.angle2Points(p2, p1);
 testCase.assertEqual(pi, angle, 'AbsTol', .01);
 
 function testVert(testCase)
@@ -32,10 +32,10 @@ function testVert(testCase)
 
 p1 = [0 0];
 p2 = [0 10];
-angle = angle2Points(p1, p2);
+angle = matGeom.geom2d.angle2Points(p1, p2);
 testCase.assertEqual(pi/2, angle, 'AbsTol', .01);
 
-angle = angle2Points(p2, p1);
+angle = matGeom.geom2d.angle2Points(p2, p1);
 testCase.assertEqual(3*pi/2, angle, 'AbsTol', .01);
 
 
@@ -44,7 +44,7 @@ function testMultiMulti(testCase)
 
 p1 = [0 0;0 0;0 0;0 0];
 p2 = [10 0;10 10;0 10;-10 10];
-angle = angle2Points(p1, p2);
+angle = matGeom.geom2d.angle2Points(p1, p2);
 testCase.assertEqual(size(p1, 1), size(angle, 1), 'AbsTol', .01);
 
 res = [0;pi/4;pi/2;3*pi/4];
@@ -55,7 +55,7 @@ function testOneMulti(testCase)
 
 p1 = [0 0];
 p2 = [10 0;10 10;0 10;-10 10];
-angle = angle2Points(p1, p2);
+angle = matGeom.geom2d.angle2Points(p1, p2);
 testCase.assertEqual(size(p2, 1), size(angle, 1), 'AbsTol', .01);
 
 res = [0;pi/4;pi/2;3*pi/4];

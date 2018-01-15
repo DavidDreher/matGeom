@@ -20,16 +20,16 @@ function testSimple(testCase) %#ok<*DEFNU>
 
 p1 = [2 3];
 p2 = [5 7];
-edge = createEdge(p1, p2);
-len = edgeLength(edge);
+edge = matGeom.geom2d.createEdge(p1, p2);
+len = matGeom.geom2d.edgeLength(edge);
 testCase.assertEqual(5, len, 'AbsTol', .01);
 
 function testArray(testCase)
 
 p1 = [2 3;2 3;3 2;5 7];
 p2 = [5 7;5 7;7 5;2 3];
-edge = createEdge(p1, p2);
-len = edgeLength(edge);
+edge = matGeom.geom2d.createEdge(p1, p2);
+len = matGeom.geom2d.edgeLength(edge);
 
 testCase.assertEqual(4, size(len, 1));
 testCase.assertEqual([5;5;5;5], len, 'AbsTol', .01);

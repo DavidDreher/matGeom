@@ -19,12 +19,12 @@ test_suite = functiontests(localfunctions);
 
 function testCreation(testCase) %#ok<*DEFNU>
 
-createSoccerBall();
+matGeom.meshes3d.createSoccerBall();
 
 
 function testVEFCreation(testCase)
 
-[v, e, f] = createSoccerBall();
+[v, e, f] = matGeom.meshes3d.createSoccerBall();
 testCase.assertTrue(~isempty(v));
 testCase.assertTrue(~isempty(e));
 testCase.assertTrue(~isempty(f));
@@ -37,7 +37,7 @@ testCase.assertEqual(nf, length(f));
 
 function testVFCreation(testCase)
 
-[v, f] = createSoccerBall();
+[v, f] = matGeom.meshes3d.createSoccerBall();
 testCase.assertTrue(~isempty(v));
 testCase.assertTrue(~isempty(f));
 
@@ -48,7 +48,7 @@ testCase.assertEqual(nf, length(f));
 
 function testMeshCreation(testCase)
 
-mesh = createSoccerBall();
+mesh = matGeom.meshes3d.createSoccerBall();
 testCase.assertTrue(isstruct(mesh));
 testCase.assertTrue(isfield(mesh, 'vertices'));
 testCase.assertTrue(isfield(mesh, 'edges'));

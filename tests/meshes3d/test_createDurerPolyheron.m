@@ -19,13 +19,13 @@ test_suite = functiontests(localfunctions);
 
 function test_Simple(testCase) %#ok<*DEFNU>
 % Test call of function without argument
-[v, f] = createDurerPolyhedron;
+[v, f] = matGeom.meshes3d.createDurerPolyhedron;
 testCase.assertEqual([12 3], size(v));
 testCase.assertEqual(8, length(f));
 
 function test_VEF(testCase)
 % Test call of function without argument
-[v, e, f] = createDurerPolyhedron;
+[v, e, f] = matGeom.meshes3d.createDurerPolyhedron;
 testCase.assertEqual([12 3], size(v));
 testCase.assertEqual([18 2], size(e));
 testCase.assertEqual(8, length(f));

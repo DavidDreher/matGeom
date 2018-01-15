@@ -33,7 +33,7 @@ p3 = [20 50 10];
 points = [p1;p2;p3];
 
 % create a 3D line through 2 points
-line12 = createLine3d(p1, p2);
+line12 = matGeom.geom3d.createLine3d(p1, p2);
 
 % an edge is represented by concatenating its vertices
 edge13 = [p1 p3];
@@ -46,56 +46,56 @@ set(gcf, 'renderer', 'opengl');
 set(gca, 'CameraPosition', [400 -200 800]);
 
 % draw all points
-drawPoint3d(points);
+matGeom.geom3d.drawPoint3d(points);
 
 % draw the line, with some drawing options (clipping is automatic).
-drawLine3d(line12, 'color', 'k');
+matGeom.geom3d.drawLine3d(line12, 'color', 'k');
 
 % draw an edge, using a thick stroke and a different color
-drawEdge3d(edge13, 'color', 'r', 'linewidth', 2);
+matGeom.geom3d.drawEdge3d(edge13, 'color', 'r', 'linewidth', 2);
 
 
 %% Create planes
 
 % create a plane from 3 points
-plane = createPlane(p1, p2, p3);
+plane = matGeom.geom3d.createPlane(p1, p2, p3);
 
 % draw the plane. Clipping is automatically performed.
-drawPlane3d(plane);
+matGeom.geom3d.drawPlane3d(plane);
 
 % create a line from a point and a direction vector
 p0 = [60 60 60];
 n0 = [-10 1 10];
-plane0 = createPlane(p0, n0);
+plane0 = matGeom.geom3d.createPlane(p0, n0);
 
 % draw the plane, changing its color
-drawPlane3d(plane0, 'g');
+matGeom.geom3d.drawPlane3d(plane0, 'g');
 
 
 %% Compute intersections
 
 % compute intersection between 2 planes
-line = intersectPlanes(plane0, plane);
-drawLine3d(line, 'lineWidth', 2);
+line = matGeom.geom3d.intersectPlanes(plane0, plane);
+matGeom.geom3d.drawLine3d(line, 'lineWidth', 2);
 
 % compute intersection between a plane and a line
-inter = intersectLinePlane(line12, plane0);
-drawPoint3d(inter, 'Marker', '+', 'MarkerSize', 10, 'LineWidth', 3);
+inter = matGeom.geom3d.intersectLinePlane(line12, plane0);
+matGeom.geom3d.drawPoint3d(inter, 'Marker', '+', 'MarkerSize', 10, 'LineWidth', 3);
 
 % create a line perpendicular to a plane
-normal = planeNormal(plane);
+normal = matGeom.geom3d.planeNormal(plane);
 perpLine = [80 60 40 normal];
 % define line properties as struct
 lineProps.LineStyle='--';
 lineProps.LineWidth=2;
 lineProps.Color='c';
-drawLine3d(perpLine,lineProps);
+matGeom.geom3d.drawLine3d(perpLine,lineProps);
 
 % compute intersection of line with plane
-inter2 = intersectLinePlane(perpLine, plane);
+inter2 = matGeom.geom3d.intersectLinePlane(perpLine, plane);
 % define point properties as struct
 pointProps.Marker='^';
 pointProps.MarkerFaceColor='c';
 pointProps.MarkerEdgeColor='k';
-drawPoint3d(inter2,pointProps);
+matGeom.geom3d.drawPoint3d(inter2,pointProps);
 

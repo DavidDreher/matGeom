@@ -29,20 +29,20 @@ axis(box);
 line = [30 40 10 0];
 edge = [0 40 100 40];
 
-hl = drawLine(line);
+hl = matGeom.geom2d.drawLine(line);
 testCase.assertEqual(edge([1 3]), get(hl, 'xdata'), 'AbsTol', .01);
 testCase.assertEqual(edge([2 4]), get(hl, 'ydata'), 'AbsTol', .01);
 
 % inside, to the left
 line = [30 40 -10 0];
 edge = [100 40 0 40];
-hl = drawLine(line);
+hl = matGeom.geom2d.drawLine(line);
 testCase.assertEqual(edge([1 3]), get(hl, 'xdata'), 'AbsTol', .01);
 testCase.assertEqual(edge([2 4]), get(hl, 'ydata'), 'AbsTol', .01);
 
 % outside
 line = [30 140 10 0];
-hl = drawLine(line);
+hl = matGeom.geom2d.drawLine(line);
 testCase.assertEqual(-1, hl);
 
 close(hf);
@@ -59,20 +59,20 @@ axis(box);
 % inside, upward
 line = [30 40 0 10];
 edge = [30 0 30 100];
-hl = drawLine(line);
+hl = matGeom.geom2d.drawLine(line);
 testCase.assertEqual(edge([1 3]), get(hl, 'xdata'), 'AbsTol', .01);
 testCase.assertEqual(edge([2 4]), get(hl, 'ydata'), 'AbsTol', .01);
 
 % inside, downward
 line = [30 40 0 -10];
 edge = [30 100 30 0];
-hl = drawLine(line);
+hl = matGeom.geom2d.drawLine(line);
 testCase.assertEqual(edge([1 3]), get(hl, 'xdata'), 'AbsTol', .01);
 testCase.assertEqual(edge([2 4]), get(hl, 'ydata'), 'AbsTol', .01);
 
 % outside
 line = [140 30 0 10];
-hl = drawLine(line);
+hl = matGeom.geom2d.drawLine(line);
 testCase.assertEqual(-1, hl);
 
 close(hf);
@@ -89,24 +89,24 @@ axis(box); hold on;
 % inside, top right corner
 line = [80 30 10 10];
 edge = [50 0 100 50];
-hl = drawLine(line);
+hl = matGeom.geom2d.drawLine(line);
 testCase.assertEqual(edge([1 3]), get(hl, 'xdata'), 'AbsTol', .01);
 testCase.assertEqual(edge([2 4]), get(hl, 'ydata'), 'AbsTol', .01);
 
 % inside, down right corner
 line = [20 70 10 10];
 edge = [0 50 50 100];
-hl = drawLine(line);
+hl = matGeom.geom2d.drawLine(line);
 testCase.assertEqual(edge([1 3]), get(hl, 'xdata'), 'AbsTol', .01);
 testCase.assertEqual(edge([2 4]), get(hl, 'ydata'), 'AbsTol', .01);
 
 % outside
 line = [140 -30 10 10];
-hl = drawLine(line);
+hl = matGeom.geom2d.drawLine(line);
 testCase.assertEqual(-1, hl);
 
 line = [-40 130 10 10];
-hl = drawLine(line);
+hl = matGeom.geom2d.drawLine(line);
 testCase.assertEqual(-1, hl);
 
 close(hf);
@@ -127,7 +127,7 @@ line = [...
 edge = [...
     50 0 100 50; ...
     0 50 50 100];
-hl = drawLine(line);
+hl = matGeom.geom2d.drawLine(line);
 testCase.assertEqual(4, length(hl));
 testCase.assertEqual(edge(1, [1 3]), get(hl(1), 'xdata'), 'AbsTol', .01);
 testCase.assertEqual(edge(1, [2 4]), get(hl(1), 'ydata'), 'AbsTol', .01);

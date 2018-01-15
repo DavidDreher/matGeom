@@ -21,7 +21,7 @@ function test_twoPoints(testCase) %#ok<*DEFNU>
 p1 = [10 20];
 p2 = [30 40];
 exp = [20 30];
-mid = midPoint(p1, p2);
+mid = matGeom.geom2d.midPoint(p1, p2);
 testCase.assertEqual(exp, mid);
 
 
@@ -41,7 +41,7 @@ exp = [...
     40 50; ...
     60 70];
 
-mid = midPoint(p1, p2);
+mid = matGeom.geom2d.midPoint(p1, p2);
 testCase.assertEqual(exp, mid);
 
 function test_pointArray(testCase)
@@ -56,7 +56,7 @@ exp = [...
     40 50; ...
     50 60];
 
-mid = midPoint(p1, p2);
+mid = matGeom.geom2d.midPoint(p1, p2);
 testCase.assertEqual(exp, mid);
 
 function test_arrayPoint(testCase)
@@ -72,7 +72,7 @@ exp = [...
     30 40; ...
     40 50];
 
-mid = midPoint(p1, p2);
+mid = matGeom.geom2d.midPoint(p1, p2);
 testCase.assertEqual(exp, mid);
 
 
@@ -88,7 +88,7 @@ p2 = [30 40];
 expX = [20 ; 30 ; 40];
 expY = [30 ; 40 ; 50];
 
-[x, y] = midPoint(p1, p2);
+[x, y] = matGeom.geom2d.midPoint(p1, p2);
 testCase.assertEqual(expX, x);
 testCase.assertEqual(expY, y);
 
@@ -98,7 +98,7 @@ function test_edge(testCase)
 
 edge = [10 20 30 40];
 exp = [20 30];
-mid = midPoint(edge);
+mid = matGeom.geom2d.midPoint(edge);
 testCase.assertEqual(exp, mid);
 
 
@@ -106,6 +106,6 @@ function test_edgeArray(testCase)
 
 edge = [10 20 30 40; 30 40 50 60; 50 60 70 80];
 exp = [20 30;40 50; 60 70];
-mid = midPoint(edge);
+mid = matGeom.geom2d.midPoint(edge);
 testCase.assertEqual(exp, mid);
 

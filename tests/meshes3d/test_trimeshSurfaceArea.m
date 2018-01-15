@@ -19,8 +19,8 @@ test_suite = functiontests(localfunctions);
 
 function test_Octahedron(testCase) %#ok<*DEFNU>
 
-[v, e, f] = createOctahedron(); %#ok<ASGLU>
-area = trimeshSurfaceArea(v, f);
+[v, e, f] = matGeom.meshes3d.createOctahedron(); %#ok<ASGLU>
+area = matGeom.meshes3d.trimeshSurfaceArea(v, f);
 
 a = sqrt(2);
 exp = 2 * sqrt(3) * a * a;

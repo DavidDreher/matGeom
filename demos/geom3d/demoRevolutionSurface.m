@@ -18,7 +18,7 @@ function demoRevolutionSurface(varargin)
 %% Draw a torus with vertical axis as revolution axis
 
 circle  = circleToPolygon([10 0 3], 50);
-[x, y, t] = revolutionSurface(circle, linspace(0, 4*pi/3, 50));
+[x, y, t] = matGeom.geom3d.revolutionSurface(circle, linspace(0, 4*pi/3, 50));
 
 figure;
 surf(x, y, t);

@@ -18,5 +18,5 @@ test_suite = functiontests(localfunctions);
 
 function testBasic(testCase)
 
-trans = createTranslation(2, 3);
+trans = matGeom.geom2d.createTranslation(2, 3);
 testCase.assertEqual(trans, [1 0 2;0 1 3;0 0 1], 'AbsTol', .01);

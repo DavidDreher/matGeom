@@ -20,10 +20,10 @@ test_suite = functiontests(localfunctions);
 function test_Simple(testCase) %#ok<*DEFNU>
 % Test call of function without argument
 
-plane = createPlane([10 20 30], [0 0 1]);
+plane = matGeom.geom3d.createPlane([10 20 30], [0 0 1]);
 point = [12 23 34];
 
-proj = projPointOnPlane(point, plane);
+proj = matGeom.geom3d.projPointOnPlane(point, plane);
 exp = [12 23 30];
 
 testCase.assertEqual(exp, proj, 'AbsTol', 1e-12);

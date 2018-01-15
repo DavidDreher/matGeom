@@ -26,21 +26,21 @@ p3 = [10 50 30];
 
 exp = 300;
 
-area = triangleArea3d(p1, p2, p3);
+area = matGeom.geom3d.triangleArea3d(p1, p2, p3);
 testCase.assertEqual(exp, area);
-area = triangleArea3d(p2, p3, p1);
+area = matGeom.geom3d.triangleArea3d(p2, p3, p1);
 testCase.assertEqual(exp, area);
-area = triangleArea3d(p3, p1, p2);
-testCase.assertEqual(exp, area);
-
-area = triangleArea3d(p3, p2, p1);
-testCase.assertEqual(exp, area);
-area = triangleArea3d(p1, p3, p2);
-testCase.assertEqual(exp, area);
-area = triangleArea3d(p2, p1, p3);
+area = matGeom.geom3d.triangleArea3d(p3, p1, p2);
 testCase.assertEqual(exp, area);
 
-area = triangleArea3d([p1; p2; p3]);
+area = matGeom.geom3d.triangleArea3d(p3, p2, p1);
+testCase.assertEqual(exp, area);
+area = matGeom.geom3d.triangleArea3d(p1, p3, p2);
+testCase.assertEqual(exp, area);
+area = matGeom.geom3d.triangleArea3d(p2, p1, p3);
+testCase.assertEqual(exp, area);
+
+area = matGeom.geom3d.triangleArea3d([p1; p2; p3]);
 testCase.assertEqual(exp, area);
 
 
@@ -52,10 +52,10 @@ p2 = [30 30 20];
 p3 = [10 30 50];
 exp = 300;
 
-area = triangleArea3d(p1, p2, p3);
+area = matGeom.geom3d.triangleArea3d(p1, p2, p3);
 testCase.assertEqual(exp, area);
 
-area = triangleArea3d([p1; p2; p3]);
+area = matGeom.geom3d.triangleArea3d([p1; p2; p3]);
 testCase.assertEqual(exp, area);
 
 function test_YZ(testCase)
@@ -66,9 +66,9 @@ p2 = [30 30 20];
 p3 = [30 10 50];
 exp = 300;
 
-area = triangleArea3d(p1, p2, p3);
+area = matGeom.geom3d.triangleArea3d(p1, p2, p3);
 testCase.assertEqual(exp, area);
 
-area = triangleArea3d([p1; p2; p3]);
+area = matGeom.geom3d.triangleArea3d([p1; p2; p3]);
 testCase.assertEqual(exp, area);
 

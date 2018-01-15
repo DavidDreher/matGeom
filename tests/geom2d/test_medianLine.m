@@ -23,7 +23,7 @@ function testTwoPoints(testCase) %#ok<*DEFNU>
 p1 = [0 0];
 p2 = [10 0];
 exp = [5 0 0 10];
-line = medianLine(p1, p2);
+line = matGeom.geom2d.medianLine(p1, p2);
 testCase.assertEqual(exp, line, 'AbsTol', .01);
 
 function testEdge(testCase) 
@@ -32,7 +32,7 @@ function testEdge(testCase)
 p1 = [0 0];
 p2 = [10 0];
 exp = [5 0 0 10];
-line = medianLine([p1 p2]);
+line = matGeom.geom2d.medianLine([p1 p2]);
 testCase.assertEqual(exp, line, 'AbsTol', .01);
 
 function testTwoPointArrays(testCase) %#ok<*DEFNU>
@@ -43,5 +43,5 @@ p2 = [10 0;10 20];
 
 exp = [5 0 0 10; 10 15 -10 0];
 
-line = medianLine(p1, p2);
+line = matGeom.geom2d.medianLine(p1, p2);
 testCase.assertEqual(exp, line, 'AbsTol', .01);

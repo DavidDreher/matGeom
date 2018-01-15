@@ -24,11 +24,11 @@ xc = [0 12 0 -1/5];
 yc = [0 0 1];
 
 % curve for display
-curve = polynomialCurvePoint(t, xc, yc);
+curve = matGeom.polynomialCurves2d.polynomialCurvePoint(t, xc, yc);
 
 % draw the curve
 figure(1); clf; hold on;
-drawPolyline(curve);
+matGeom.polygons2d.drawPolyline(curve);
 axis equal;
 
 
@@ -38,14 +38,14 @@ axis equal;
 point = [0 40];
 
 % position of projection on the curve
-pos = polynomialCurveProjection(t, xc, yc, point);
+pos = matGeom.polynomialCurves2d.polynomialCurveProjection(t, xc, yc, point);
 
 % coordinate of projection point
-proj = polynomialCurvePoint(pos, xc, yc);
+proj = matGeom.polynomialCurves2d.polynomialCurvePoint(pos, xc, yc);
 
 % draw the point and its projection
-drawPoint(point, 'bo');
-drawPoint(proj, 'ro');
-drawEdge([point proj], 'k');
+matGeom.geom2d.drawPoint(point, 'bo');
+matGeom.geom2d.drawPoint(proj, 'ro');
+matGeom.geom2d.drawEdge([point proj], 'k');
 
 

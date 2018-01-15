@@ -27,7 +27,7 @@ ABC = [A ; B ; C];
 
 % Draw the base triangle
 figure;
-drawPolygon(ABC, 'color', 'k', 'lineWidth', 2);
+matGeom.polygons2d.drawPolygon(ABC, 'color', 'k', 'lineWidth', 2);
 axis equal;
 axis([-5 20 -8 12]);
 hold on;
@@ -41,32 +41,32 @@ tBC = createTriangle(C, B);
 tAC = createTriangle(A, C);
 
 % draw each equilateral triangle
-drawPolygon(tAB, 'color', 'b');
-drawPolygon(tBC, 'color', 'b');
-drawPolygon(tAC, 'color', 'b');
+matGeom.polygons2d.drawPolygon(tAB, 'color', 'b');
+matGeom.polygons2d.drawPolygon(tBC, 'color', 'b');
+matGeom.polygons2d.drawPolygon(tAC, 'color', 'b');
 
 
 %% Compute centroid of each triangle
 
 % compute centroids
-c1 = polygonCentroid(tAB);
-c2 = polygonCentroid(tBC);
-c3 = polygonCentroid(tAC);
+c1 = matGeom.polygons2d.polygonCentroid(tAB);
+c2 = matGeom.polygons2d.polygonCentroid(tBC);
+c3 = matGeom.polygons2d.polygonCentroid(tAC);
 
 % draw the triangle formed by the centroids
 triC = [c1; c2; c3];
-drawPolygon(triC, 'lineWidth', 2, 'color', [0 .8 0]);
-drawPoint(triC, 'marker', 'o', 'markerSize', 8, 'markerfacecolor', [0 .8 0]);
+matGeom.polygons2d.drawPolygon(triC, 'lineWidth', 2, 'color', [0 .8 0]);
+matGeom.geom2d.drawPoint(triC, 'marker', 'o', 'markerSize', 8, 'markerfacecolor', [0 .8 0]);
 
 
 function tri = createTriangle(p1, p2)
 
-d12 = distancePoints(p1, p2);
+d12 = matGeom.geom2d.distancePoints(p1, p2);
 c1 = [p1 d12];
 c2 = [p2 d12];
-inters = intersectCircles(c1, c2);
+inters = matGeom.geom2d.intersectCircles(c1, c2);
 
-indPos = isCounterClockwise(p1, p2, inters) > 0;
+indPos = matGeom.geom2d.isCounterClockwise(p1, p2, inters) > 0;
 p3 = inters(indPos, :);
 
 tri = [p1; p2; p3];

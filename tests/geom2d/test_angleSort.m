@@ -25,7 +25,7 @@ p4 = [0 10];
 pts = [p1;p2;p3;p4];
 center = [5 5];
 expected = pts([3 4 1 2], :);
-testCase.assertEqual(expected, angleSort(pts, center), 'AbsTol', .01);
+testCase.assertEqual(expected, matGeom.geom2d.angleSort(pts, center), 'AbsTol', .01);
 
 function testSimpleWithAngle(testCase)
 
@@ -35,5 +35,5 @@ p3 = [10 10];
 p4 = [0 10];
 pts = [p1;p2;p3;p4];
 center = [5 5];
-testCase.assertEqual(pts, angleSort(pts, center, -pi), 'AbsTol', .01);
+testCase.assertEqual(pts, matGeom.geom2d.angleSort(pts, center, -pi), 'AbsTol', .01);
 

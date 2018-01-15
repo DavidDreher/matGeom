@@ -21,12 +21,12 @@ function testTwoLines(testCase) %#ok<*DEFNU>
 p0 = [0 0];
 p1 = [10 0];
 p2 = [0 10];
-line1 = createLine(p0, p1);
-line2 = createLine(p0, p2);
+line1 = matGeom.geom2d.createLine(p0, p1);
+line2 = matGeom.geom2d.createLine(p0, p2);
 
-ray = bisector(line1, line2);
+ray = matGeom.geom2d.bisector(line1, line2);
 testCase.assertEqual([0 0], ray(1,1:2), 'AbsTol', .01);
-testCase.assertEqual(pi/4, lineAngle(ray), 'AbsTol', .01);
+testCase.assertEqual(pi/4, matGeom.geom2d.lineAngle(ray), 'AbsTol', .01);
 
 function testThreePoints(testCase)
 
@@ -34,9 +34,9 @@ p0 = [0 0];
 p1 = [10 0];
 p2 = [0 10];
 
-ray = bisector(p1, p0, p2);
+ray = matGeom.geom2d.bisector(p1, p0, p2);
 testCase.assertEqual([0 0], ray(1,1:2), 'AbsTol', .01);
-testCase.assertEqual(pi/4, lineAngle(ray), 'AbsTol', .01);
+testCase.assertEqual(pi/4, matGeom.geom2d.lineAngle(ray), 'AbsTol', .01);
 
 function testThreeBundldedPoints(testCase)
 
@@ -44,6 +44,6 @@ p0 = [0 0];
 p1 = [10 0];
 p2 = [0 10];
 
-ray = bisector([p1; p0; p2]);
+ray = matGeom.geom2d.bisector([p1; p0; p2]);
 testCase.assertEqual([0 0], ray(1,1:2), 'AbsTol', .01);
-testCase.assertEqual(pi/4, lineAngle(ray), 'AbsTol', .01);
+testCase.assertEqual(pi/4, matGeom.geom2d.lineAngle(ray), 'AbsTol', .01);

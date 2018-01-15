@@ -21,10 +21,10 @@ test_suite = functiontests(localfunctions);
 function testBasic(testCase) %#ok<*DEFNU>
 
 point = [20 60];
-line = createLine([10 30], [30 90]);
+line = matGeom.geom2d.createLine([10 30], [30 90]);
 
 exp = .5;
-pos = linePosition(point, line);
+pos = matGeom.geom2d.linePosition(point, line);
 
 testCase.assertEqual(exp, pos);
 
@@ -32,10 +32,10 @@ testCase.assertEqual(exp, pos);
 function testPointArray(testCase)
 
 point = [20 60;10 30;25 75];
-line = createLine([10 30], [30 90]);
+line = matGeom.geom2d.createLine([10 30], [30 90]);
 
 exp = [.5; 0; .75];
-pos = linePosition(point, line);
+pos = matGeom.geom2d.linePosition(point, line);
 
 testCase.assertEqual(exp, pos);
 
@@ -43,13 +43,13 @@ testCase.assertEqual(exp, pos);
 function testLineArray(testCase)
 
 point = [20 60];
-line1 = createLine([10 30], [30 90]);
-line2 = createLine([0 0], [20 60]);
-line3 = createLine([20 60], [40 120]);
+line1 = matGeom.geom2d.createLine([10 30], [30 90]);
+line2 = matGeom.geom2d.createLine([0 0], [20 60]);
+line3 = matGeom.geom2d.createLine([20 60], [40 120]);
 lines = [line1;line2;line3];
 
 exp = [.5  1  0];
-pos = linePosition(point, lines);
+pos = matGeom.geom2d.linePosition(point, lines);
 
 testCase.assertEqual(exp, pos);
 
@@ -59,7 +59,7 @@ lines = [10 20 1 0;10 20 0 1;10 20 1 1];
 points = [30 20;10 40; 30 40];
 
 exp = [20 0 10; 0 20 10; 20 20 20];
-pos = linePosition(points, lines);
+pos = matGeom.geom2d.linePosition(points, lines);
 
 testCase.assertEqual(exp, pos, 'AbsTol', .01);
 
@@ -69,6 +69,6 @@ lines = [10 20 1 0;10 20 0 1;10 20 1 1];
 points = [30 20;10 40; 30 40];
 
 exp = [20; 20; 20];
-pos = linePosition(points, lines, 'diag');
+pos = matGeom.geom2d.linePosition(points, lines, 'diag');
 
 testCase.assertEqual(exp, pos, 'AbsTol', .01);

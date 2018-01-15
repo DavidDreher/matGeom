@@ -22,7 +22,7 @@ function testPerpendicular(testCase) %#ok<*DEFNU>
 
 v1 = [1 2];
 v2 = [-4 2];
-b  = isPerpendicular(v1, v2);
+b  = matGeom.geom2d.isPerpendicular(v1, v2);
 testCase.assertTrue(b);
 
 
@@ -30,7 +30,7 @@ function testNotPerpendicular(testCase)
 
 v1 = [1 2];
 v2 = [-4 1];
-b  = isPerpendicular(v1, v2);
+b  = matGeom.geom2d.isPerpendicular(v1, v2);
 testCase.assertFalse(b);
 
 function testArrayAndSingle(testCase)
@@ -39,10 +39,10 @@ v1  = [1 0; 1 1; 1 2];
 v2  = [-4 2];
 th  = [false; false; true];
 
-res = isPerpendicular(v1, v2);
+res = matGeom.geom2d.isPerpendicular(v1, v2);
 testCase.assertEqual(res, th);
 
-res = isPerpendicular(v2, v1);
+res = matGeom.geom2d.isPerpendicular(v2, v1);
 testCase.assertEqual(res, th);
 
 
@@ -53,8 +53,8 @@ v2  = [0 1; 1 2; 1 1];
 
 th  = [true; false; false];
 
-res = isPerpendicular(v1, v2);
+res = matGeom.geom2d.isPerpendicular(v1, v2);
 testCase.assertEqual(res, th);
 
-res = isPerpendicular(v1, v2);
+res = matGeom.geom2d.isPerpendicular(v1, v2);
 testCase.assertEqual(res, th);

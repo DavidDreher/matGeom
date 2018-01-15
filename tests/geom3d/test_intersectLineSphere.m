@@ -24,7 +24,7 @@ radius = 50;
 
 line = [center 6 0 0];
 
-inter = intersectLineSphere(line, [center radius]);
+inter = matGeom.geom3d.intersectLineSphere(line, [center radius]);
 
 exp = [...
     center(1)-radius center(2) center(3); ... 
@@ -39,7 +39,7 @@ radius = 50;
 
 line = [center 0 6 0];
 
-inter = intersectLineSphere(line, [center radius]);
+inter = matGeom.geom3d.intersectLineSphere(line, [center radius]);
 
 exp = [...
     center(1) center(2)-radius center(3); ... 
@@ -54,7 +54,7 @@ radius = 50;
 
 line = [center 0 0 6];
 
-inter = intersectLineSphere(line, [center radius]);
+inter = matGeom.geom3d.intersectLineSphere(line, [center radius]);
 
 exp = [...
     center(1) center(2) center(3)-radius; ... 
@@ -74,6 +74,6 @@ line3 = [center 0 0 6];
 lines = [line1 ; line2 ; line3];
 
 
-inter = intersectLineSphere(lines, sphere);
+inter = matGeom.geom3d.intersectLineSphere(lines, sphere);
 
 

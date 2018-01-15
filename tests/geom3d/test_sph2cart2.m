@@ -19,21 +19,21 @@ test_suite = functiontests(localfunctions);
 
 function testNorthPole(testCase) %#ok<*DEFNU>
 
-[x, y, z] = sph2cart2(0, 0, 1);
+[x, y, z] = matGeom.geom3d.sph2cart2(0, 0, 1);
 testCase.assertEqual(0, x, 'AbsTol', .01);
 testCase.assertEqual(0, y, 'AbsTol', .01);
 testCase.assertEqual(1, z, 'AbsTol', .01);
 
 function testPointOx(testCase)
 
-[x, y, z] = sph2cart2(pi/2, 0, 10);
+[x, y, z] = matGeom.geom3d.sph2cart2(pi/2, 0, 10);
 testCase.assertEqual(10, x, 'AbsTol', .01);
 testCase.assertEqual(0, y, 'AbsTol', .01);
 testCase.assertEqual(0, z, 'AbsTol', .01);
 
 function testPointXY(testCase)
 
-[x, y, z] = sph2cart2(pi/2, pi/4, 10*sqrt(2));
+[x, y, z] = matGeom.geom3d.sph2cart2(pi/2, pi/4, 10*sqrt(2));
 testCase.assertEqual(10, x, 'AbsTol', .01);
 testCase.assertEqual(10, y, 'AbsTol', .01);
 testCase.assertEqual(0, z, 'AbsTol', .01);
@@ -41,14 +41,14 @@ testCase.assertEqual(0, z, 'AbsTol', .01);
 
 function testSingleInput(testCase)
 
-[x, y, z] = sph2cart2([0, 0, 1]);
+[x, y, z] = matGeom.geom3d.sph2cart2([0, 0, 1]);
 testCase.assertEqual(0, x, 'AbsTol', .01);
 testCase.assertEqual(0, y, 'AbsTol', .01);
 testCase.assertEqual(1, z, 'AbsTol', .01);
 
 function testSingleOutput(testCase)
 
-res = sph2cart2([0, 0, 1]);
+res = matGeom.geom3d.sph2cart2([0, 0, 1]);
 testCase.assertEqual(0, res(1), 'AbsTol', .01);
 testCase.assertEqual(0, res(2), 'AbsTol', .01);
 testCase.assertEqual(1, res(3), 'AbsTol', .01);
@@ -64,7 +64,7 @@ pts = [ ...
     pi/3 7*pi/3 20; ...
     2*pi/3 7*pi/3 2];
 
-[theta, phi, rho] = cart2sph2(pts);
-pts2 = sph2cart2(theta, phi, rho);
+[theta, phi, rho] = matGeom.geom3d.cart2sph2(pts);
+pts2 = matGeom.geom3d.sph2cart2(theta, phi, rho);
 
 testCase.assertEqual(pts2, pts, 'AbsTol', .01);

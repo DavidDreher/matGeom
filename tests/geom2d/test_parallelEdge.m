@@ -21,7 +21,7 @@ function test_Simple(testCase) %#ok<*DEFNU>
 % Test call of function without argument
 
 exp = [10 15 30 15];
-res = parallelEdge([10 20 30 20], 5);
+res = matGeom.geom2d.parallelEdge([10 20 30 20], 5);
 testCase.assertEqual(exp, res, 'AbsTol', .01);
 
 
@@ -29,7 +29,7 @@ function test_Array(testCase)
 % Test call of function without argument
 
 edges = [10 20 30 20; 30 20 10 20];
-res = parallelEdge(edges, 5);
+res = matGeom.geom2d.parallelEdge(edges, 5);
 
 exp = [10 15 30 15; 30 25 10 25];
 testCase.assertEqual(exp, res, 'AbsTol', .01);

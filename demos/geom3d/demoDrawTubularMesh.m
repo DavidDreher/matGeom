@@ -19,7 +19,7 @@ function demoDrawTubularMesh(varargin)
 %% Initialisation
 
 % extract vertices, edges, and faces of soccerball polyhedron
-[vertices, edges, faces] = createSoccerBall;
+[vertices, edges, faces] = matGeom.meshes3d.createSoccerBall;
 
 % prepare figure
 figure(1); clf; hold on;
@@ -27,7 +27,7 @@ axis equal;
 view(3);
 
 % draw the polyhedron as basis
-drawPolyhedron(vertices, faces);
+matGeom.meshes3d.drawPolyhedron(vertices, faces);
 
 
 %% Draw each edge as a green cylinder
@@ -43,14 +43,14 @@ for i = 1:size(edges, 1)
     p1 = vertices(edges(i, 1), :);
     p2 = vertices(edges(i, 2), :);
 
-    drawCylinder([p1 p2 width], 'FaceColor', 'g');
+    matGeom.geom3d.drawCylinder([p1 p2 width], 'FaceColor', 'g');
 end
 
 
 %% Draw each vertex as a blue ball
 
 for i = 1:size(vertices, 1)
-    drawSphere([vertices(i, :) radius], 'FaceColor', 'b');
+    matGeom.geom3d.drawSphere([vertices(i, :) radius], 'FaceColor', 'b');
 end
 
 

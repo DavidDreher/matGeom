@@ -22,7 +22,7 @@ function test_Subdivide_N2(testCase) %#ok<*DEFNU>
 % subdivide by a factor of 2
 
 [v, f] = createSimpleMesh();
-[v2, f2] = subdivideMesh(v, f, 2);
+[v2, f2] = matGeom.meshes3d.subdivideMesh(v, f, 2);
 
 testCase.assertEqual(9, size(v2, 1));
 nFaces = size(f2, 1);
@@ -32,7 +32,7 @@ function test_Subdivide_N3(testCase)
 % subdivide by a factor of 3
 
 [v, f] = createSimpleMesh();
-[v2, f2] = subdivideMesh(v, f, 3);
+[v2, f2] = matGeom.meshes3d.subdivideMesh(v, f, 3);
 
 testCase.assertEqual(16, size(v2, 1));
 nFaces = size(f2, 1);
@@ -42,7 +42,7 @@ function test_Subdivide_N4(testCase)
 % subdivide by a factor of 4
 
 [v, f] = createSimpleMesh();
-[v2, f2] = subdivideMesh(v, f, 4);
+[v2, f2] = matGeom.meshes3d.subdivideMesh(v, f, 4);
 
 testCase.assertEqual(25, size(v2, 1));
 nFaces = size(f2, 1);

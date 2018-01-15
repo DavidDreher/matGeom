@@ -20,6 +20,6 @@ test_suite = functiontests(localfunctions);
 function testBasic(testCase) %#ok<*DEFNU>
 box1 = [5 20 5 30 10 50];
 box2 = [0 15 0 15 0 20];
-box = intersectBoxes3d(box1, box2);
+box = matGeom.geom3d.intersectBoxes3d(box1, box2);
 testCase.assertEqual([5 15 5 15 10 20], box, 'AbsTol', .01);
 

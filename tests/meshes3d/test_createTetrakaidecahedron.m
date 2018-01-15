@@ -20,12 +20,12 @@ test_suite = functiontests(localfunctions);
 
 function testCreation(testCase) %#ok<*DEFNU>
 
-createTetrakaidecahedron();
+matGeom.meshes3d.createTetrakaidecahedron();
 
 
 function testVEFCreation(testCase)
 
-[v, e, f] = createTetrakaidecahedron();
+[v, e, f] = matGeom.meshes3d.createTetrakaidecahedron();
 testCase.assertTrue(~isempty(v));
 testCase.assertTrue(~isempty(e));
 testCase.assertTrue(~isempty(f));
@@ -38,7 +38,7 @@ testCase.assertEqual(nf, length(f));
 
 function testVFCreation(testCase)
 
-[v, f] = createTetrakaidecahedron();
+[v, f] = matGeom.meshes3d.createTetrakaidecahedron();
 testCase.assertTrue(~isempty(v));
 testCase.assertTrue(~isempty(f));
 
@@ -49,7 +49,7 @@ testCase.assertEqual(nf, length(f));
 
 function testMeshCreation(testCase)
 
-mesh = createTetrakaidecahedron();
+mesh = matGeom.meshes3d.createTetrakaidecahedron();
 testCase.assertTrue(isstruct(mesh));
 testCase.assertTrue(isfield(mesh, 'vertices'));
 testCase.assertTrue(isfield(mesh, 'edges'));
@@ -63,12 +63,12 @@ testCase.assertEqual(nf, length(mesh.faces));
 
 function testFacesOutwards(testCase)
 
-[v, e, f] = createTetrakaidecahedron(); %#ok<ASGLU>
+[v, e, f] = matGeom.meshes3d.createTetrakaidecahedron(); %#ok<ASGLU>
 
-centro = centroid(v);
-fc  = meshFaceCentroids(v, f);
-fc2 = createVector(centro, fc);
-n   = meshFaceNormals(v, f);
+centro = matGeom.geom2d.centroid(v);
+fc  = matGeom.meshes3d.meshFaceCentroids(v, f);
+fc2 = matGeom.geom2d.createVector(centro, fc);
+n   = matGeom.meshes3d.meshFaceNormals(v, f);
 
 testCase.assertEqual(size(n), size(fc2));
 

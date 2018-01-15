@@ -21,8 +21,8 @@ function test_Simple(testCase) %#ok<*DEFNU>
 
 plane = [0 0 0 1 0 0 0 1 0];
 
-revPlane = reversePlane(plane);
-normal = planeNormal(revPlane);
+revPlane = matGeom.geom3d.reversePlane(plane);
+normal = matGeom.geom3d.planeNormal(revPlane);
 
 exp = [0 0 -1];
 testCase.assertEqual(exp, normal, 'AbsTol', .01);

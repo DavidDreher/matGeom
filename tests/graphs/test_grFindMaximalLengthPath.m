@@ -21,6 +21,6 @@ test_suite = functiontests(localfunctions);
 function testGraph03(testCase) %#ok<*DEFNU>
 
 [nodes, edges] = createTestGraph03;
-path = grFindMaximalLengthPath(nodes, edges);
+path = matGeom.graphs.grFindMaximalLengthPath(nodes, edges);
 exp = [1 2 5 7 11 13];
 testCase.assertEqual(exp, path);

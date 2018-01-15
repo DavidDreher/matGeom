@@ -23,7 +23,7 @@ poly1 = [10 10;20 10;20 20;10 20];
 poly2 = [30 20;50 20;40 45];
 exp = 10;
 
-dist = distancePolygons(poly1, poly2);
+dist = matGeom.polygons2d.distancePolygons(poly1, poly2);
 
 testCase.assertEqual(exp, dist, 'AbsTol', .01);
 
@@ -35,6 +35,6 @@ poly2 = [10 40; 90 40; 90 60; 10 60];
 % expected distance is 0 for crossing polygons
 exp = 0;
 
-dist = distancePolygons(poly1, poly2);
+dist = matGeom.polygons2d.distancePolygons(poly1, poly2);
 
 testCase.assertEqual(exp, dist, 'AbsTol', .01);

@@ -25,8 +25,8 @@ p3 = [20 20];
 p4 = [10 20];
 square = [p1;p2;p3;p4];
 
-subcurve = polygonSubcurve(square, .5, 1.5);
+subcurve = matGeom.polygons2d.polygonSubcurve(square, .5, 1.5);
 testCase.assertEqual(subcurve, [15 10;20 10;20 15], 'AbsTol', .01);
 
-subcurve = polygonSubcurve(square, 3.5, .5);
+subcurve = matGeom.polygons2d.polygonSubcurve(square, 3.5, .5);
 testCase.assertEqual(subcurve, [10 15;10 10;15 10], 'AbsTol', .01);

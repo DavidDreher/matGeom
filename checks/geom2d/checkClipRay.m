@@ -27,13 +27,13 @@ axis([-50 150 -50 150]);
 hold on;
 
 % draw all rays
-drawRay(rays);
+matGeom.geom2d.drawRay(rays);
 
 % clip rays
 box = [0 100 0 100];
-clipped = clipRay(rays, box);
+clipped = matGeom.geom2d.clipRay(rays, box);
 
 % draw clipped edges
-drawBox(box);
-drawEdge(clipped, 'linewidth', 2);
-drawPoint(origins, 'bo');
+matGeom.geom2d.drawBox(box);
+matGeom.geom2d.drawEdge(clipped, 'linewidth', 2);
+matGeom.geom2d.drawPoint(origins, 'bo');

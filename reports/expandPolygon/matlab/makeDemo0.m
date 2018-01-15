@@ -26,12 +26,12 @@ dist = 20;
 %% Polygone final
 
 % calcul l'expansion
-poly2 = expandPolygon(poly, dist);
+poly2 = matGeom.polygons2d.expandPolygon(poly, dist);
 
 % affiche
 figure(1); clf; hold on; axis equal;
-drawPolygon(poly, 'lineWidth', 2, 'color', 'k');
-drawPolygon(poly2);
+matGeom.polygons2d.drawPolygon(poly, 'lineWidth', 2, 'color', 'k');
+matGeom.polygons2d.drawPolygon(poly2);
 
 
 %% Sauvegarde

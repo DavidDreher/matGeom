@@ -31,14 +31,14 @@ N = size(poly, 1)-1;
 % droites paralleles
 lines = zeros(N, 4);
 for i=1:N
-    side = createLine(poly(i,:), poly(i+1,:));
-    lines(i, 1:4) = parallelLine(side, dist);
+    side = matGeom.geom2d.createLine(poly(i,:), poly(i+1,:));
+    lines(i, 1:4) = matGeom.geom2d.parallelLine(side, dist);
 end
 
 figure(1); clf; hold on;
 axis ([0 200 0 150]); axis equal;
-drawPolygon(poly, 'linewidth', 3, 'color', 'k')
-drawLine(lines);
+matGeom.polygons2d.drawPolygon(poly, 'linewidth', 3, 'color', 'k')
+matGeom.geom2d.drawLine(lines);
 
 
 %% Intersections
@@ -49,16 +49,16 @@ lines = [lines;lines(1,:)];
 % compute intersection points of consecutive lines
 poly2 = zeros(N, 2);
 for i=1:N
-    poly2(i,1:2) = intersectLines(lines(i,:), lines(i+1,:));
+    poly2(i,1:2) = matGeom.geom2d.intersectLines(lines(i,:), lines(i+1,:));
 end
 
 % dessine les intersections
-drawPoint(poly2, 'ro');
+matGeom.geom2d.drawPoint(poly2, 'ro');
 
 
 %% Polygone final
 
-drawPolygon(poly2, 'lineWidth', 3);
+matGeom.polygons2d.drawPolygon(poly2, 'lineWidth', 3);
 
 
 %% Sauvegarde

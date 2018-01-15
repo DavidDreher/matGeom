@@ -23,19 +23,19 @@ function testPointOnPolyline(testCase) %#ok<*DEFNU>
 poly = [0 0;10 0;10 10;0 10];
 
 p1 = [0 0];
-d = distancePointPolyline(p1, poly);
+d = matGeom.polygons2d.distancePointPolyline(p1, poly);
 testCase.assertEqual(0, d, 'AbsTol', .01);
 
 p1 = [10 0];
-d = distancePointPolyline(p1, poly);
+d = matGeom.polygons2d.distancePointPolyline(p1, poly);
 testCase.assertEqual(0, d, 'AbsTol', .01);
 
 p1 = [5 10];
-d = distancePointPolyline(p1, poly);
+d = matGeom.polygons2d.distancePointPolyline(p1, poly);
 testCase.assertEqual(0, d, 'AbsTol', .01);
 
 p1 = [10 5];
-d = distancePointPolyline(p1, poly);
+d = matGeom.polygons2d.distancePointPolyline(p1, poly);
 testCase.assertEqual(0, d, 'AbsTol', .01);
 
 function testPointNotOnPolyline(testCase)
@@ -46,19 +46,19 @@ function testPointNotOnPolyline(testCase)
 poly = [0 0;10 0;10 10;0 10];
 
 p1 = [0 -10];
-d = distancePointPolyline(p1, poly);
+d = matGeom.polygons2d.distancePointPolyline(p1, poly);
 testCase.assertEqual(10, d, 'AbsTol', .01);
 
 p1 = [20 0];
-d = distancePointPolyline(p1, poly);
+d = matGeom.polygons2d.distancePointPolyline(p1, poly);
 testCase.assertEqual(10, d, 'AbsTol', .01);
 
 p1 = [0 5];
-d = distancePointPolyline(p1, poly);
+d = matGeom.polygons2d.distancePointPolyline(p1, poly);
 testCase.assertEqual(5, d, 'AbsTol', .01);
 
 p1 = [5 5];
-d = distancePointPolyline(p1, poly);
+d = matGeom.polygons2d.distancePointPolyline(p1, poly);
 testCase.assertEqual(5, d, 'AbsTol', .01);
 
 function testManyPoints(testCase)
@@ -69,7 +69,7 @@ function testManyPoints(testCase)
 poly = [0 0;10 0;10 10;0 10];
 
 pts = [0 -10;20 0;0 5; 5 5];
-dist = distancePointPolyline(pts, poly);
+dist = matGeom.polygons2d.distancePointPolyline(pts, poly);
 exp = [10 10 5 5]';
 
 testCase.assertEqual(exp, dist, 'AbsTol', .01);

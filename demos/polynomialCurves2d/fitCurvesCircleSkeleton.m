@@ -27,14 +27,14 @@ figure; imshow(skel==0)
 %% Compute curve coeffs
 
 % compute coeff of each individual branch
-coeffs = polynomialCurveSetFit(skel, 2);
+coeffs = matGeom.polynomialCurves2d.polynomialCurveSetFit(skel, 2);
 
 % Display segmented image 
 figure; imshow(~img); hold on;
 
 % overlay curves
 for i = 1:length(coeffs)
-    hc = drawPolynomialCurve([0 1], coeffs{i});
+    hc = matGeom.polynomialCurves2d.drawPolynomialCurve([0 1], coeffs{i});
     set(hc, 'linewidth', 2, 'color', 'g');
 end
 
@@ -46,7 +46,7 @@ figure; imshow(ones(size(img))); hold on;
 
 % overlay curves
 for i = 1:length(coeffs)
-    hc = drawPolynomialCurve([0 1], coeffs{i});
+    hc = matGeom.polynomialCurves2d.drawPolynomialCurve([0 1], coeffs{i});
     set(hc, 'linewidth', 2, 'color', 'b');
 end
 

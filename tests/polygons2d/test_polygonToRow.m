@@ -22,12 +22,12 @@ function test_square(testCase) %#ok<*DEFNU>
 square = [10 10 ; 20 10 ; 20 20 ; 10 20];
 exp = [10 10   20 10   20 20   10 20];
 
-row = polygonToRow(square);
+row = matGeom.polygons2d.polygonToRow(square);
 testCase.assertEqual(exp, row);
 
-row = polygonToRow(square, 'interlaced');
+row = matGeom.polygons2d.polygonToRow(square, 'interlaced');
 testCase.assertEqual(exp, row);
 
 exp = [10 20 20 10  10 10 20 20];
-row = polygonToRow(square, 'packed');
+row = matGeom.polygons2d.polygonToRow(square, 'packed');
 testCase.assertEqual(exp, row);

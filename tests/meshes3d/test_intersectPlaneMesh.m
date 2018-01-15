@@ -21,11 +21,11 @@ test_suite = functiontests(localfunctions);
 function test_cube_horizPlane(testCase) %#ok<*DEFNU>
 % Test call of function without argument
 
-plane = createPlane([5 5 5], [0 0 1]);
-[v, f] = createCube;
+plane = matGeom.geom3d.createPlane([5 5 5], [0 0 1]);
+[v, f] = matGeom.meshes3d.createCube;
 v = v * 10;
 
-polys = intersectPlaneMesh(plane, v, f);
+polys = matGeom.meshes3d.intersectPlaneMesh(plane, v, f);
 testCase.assertTrue(iscell(polys));
 testCase.assertEqual(1, length(polys));
 testCase.assertEqual(4, size(polys{1}, 1));
@@ -35,11 +35,11 @@ testCase.assertEqual(4, size(polys{1}, 1));
 function test_cube_diagPlane(testCase)
 % Test call of function without argument
 
-plane = createPlane([1 1 1], [3 4 5]);
-[v, f] = createCube;
+plane = matGeom.geom3d.createPlane([1 1 1], [3 4 5]);
+[v, f] = matGeom.meshes3d.createCube;
 v = v * 5;
 
-polys = intersectPlaneMesh(plane, v, f);
+polys = matGeom.meshes3d.intersectPlaneMesh(plane, v, f);
 
 testCase.assertTrue(iscell(polys));
 testCase.assertEqual(1, length(polys));
@@ -50,11 +50,11 @@ testCase.assertEqual(3, size(polys{1}, 1));
 function test_cube_planeOutside(testCase)
 % Test call of function without argument
 
-plane = createPlane([15 15 15], [0 0 1]);
-[v, f] = createCube;
+plane = matGeom.geom3d.createPlane([15 15 15], [0 0 1]);
+[v, f] = matGeom.meshes3d.createCube;
 v = v * 5;
 
-polys = intersectPlaneMesh(plane, v, f);
+polys = matGeom.meshes3d.intersectPlaneMesh(plane, v, f);
 
 testCase.assertTrue(iscell(polys));
 testCase.assertEqual(0, length(polys));

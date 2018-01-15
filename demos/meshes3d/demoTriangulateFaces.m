@@ -17,11 +17,11 @@ function demoTriangulateFaces(varargin)
 %% Original polyhedron
 
 % create a polyhedron with various face vertex numbers
-[n e f] = createCubeOctahedron; %#ok<ASGLU>
+[n e f] = matGeom.meshes3d.createCubeOctahedron; %#ok<ASGLU>
 
 % display the polyhedron
 figure(1); clf;
-drawPolyhedron(n, f);
+matGeom.meshes3d.drawPolyhedron(n, f);
 
 % graphical settings
 view(3);
@@ -31,7 +31,7 @@ axis equal;
 %% Compute triangulation
 
 % Computation of triangulated mesh
-tri = triangulateFaces(f);
+tri = matGeom.meshes3d.triangulateFaces(f);
 
 % display new mesh
 figure(2); clf;

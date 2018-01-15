@@ -27,7 +27,7 @@ c2 = [r 0 r];
 h = r*sqrt(3)/2;
 exp = [r/2 -h ; r/2 h];
 
-inters = intersectCircles(c1, c2);
+inters = matGeom.geom2d.intersectCircles(c1, c2);
 testCase.assertEqual(exp, inters, 'AbsTol', .01);
 
 function testTangentCircles(testCase)
@@ -37,7 +37,7 @@ c1 = [0 0 r];
 c2 = [2*r 0 r];
 
 exp = [r 0;r 0];
-inters = intersectCircles(c1, c2);
+inters = matGeom.geom2d.intersectCircles(c1, c2);
 testCase.assertEqual(exp, inters, 'AbsTol', .01);
 
 function testArrays(testCase)
@@ -47,11 +47,11 @@ c1 = [0 0 r];
 c2 = [r 0 r];
 c3 = [0 r r];
 
-inters = intersectCircles(c1, [c2;c3]);
+inters = matGeom.geom2d.intersectCircles(c1, [c2;c3]);
 testCase.assertEqual(4, size(inters, 1));
 
-inters = intersectCircles([c2;c3], c1);
+inters = matGeom.geom2d.intersectCircles([c2;c3], c1);
 testCase.assertEqual(4, size(inters, 1));
 
-inters = intersectCircles([c1;c1], [c2;c3]);
+inters = matGeom.geom2d.intersectCircles([c1;c1], [c2;c3]);
 testCase.assertEqual(4, size(inters, 1));

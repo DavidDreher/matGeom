@@ -21,15 +21,15 @@ function test_square(testCase) %#ok<*DEFNU>
 
 square = [10 10 ; 20 10 ; 20 20 ; 10 20];
 
-row = polygonToRow(square);
-square2 = rowToPolygon(row);
+row = matGeom.polygons2d.polygonToRow(square);
+square2 = matGeom.polygons2d.rowToPolygon(row);
 testCase.assertEqual(square, square2);
 
-row = polygonToRow(square, 'interlaced');
-square2 = rowToPolygon(row, 'interlaced');
+row = matGeom.polygons2d.polygonToRow(square, 'interlaced');
+square2 = matGeom.polygons2d.rowToPolygon(row, 'interlaced');
 testCase.assertEqual(square, square2);
 
-row = polygonToRow(square, 'packed');
-square2 = rowToPolygon(row, 'packed');
+row = matGeom.polygons2d.polygonToRow(square, 'packed');
+square2 = matGeom.polygons2d.rowToPolygon(row, 'packed');
 testCase.assertEqual(square, square2);
 

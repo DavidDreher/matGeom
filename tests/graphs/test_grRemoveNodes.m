@@ -20,21 +20,21 @@ test_suite = functiontests(localfunctions);
 function test_RemoveOneVertex(testCase) %#ok<*DEFNU>
 % Test call of function without argument
 [nodes, edges] = makeSimpleGraph();
-[nodes2, edges2] = grRemoveNodes(nodes, edges, 3);
+[nodes2, edges2] = matGeom.graphs.grRemoveNodes(nodes, edges, 3);
 testCase.assertEqual(5, size(nodes2, 1));
 testCase.assertEqual(7, size(edges2, 1));
 
 function test_RemoveTwoMiddleVertices(testCase)
 % Test call of function without argument
 [nodes, edges] = makeSimpleGraph();
-[nodes2, edges2] = grRemoveNodes(nodes, edges, [3 4]);
+[nodes2, edges2] = matGeom.graphs.grRemoveNodes(nodes, edges, [3 4]);
 testCase.assertEqual(4, size(nodes2, 1));
 testCase.assertEqual(5, size(edges2, 1));
 
 function test_RemoveTwoExtremeVertices(testCase)
 % Test call of function without argument
 [nodes, edges] = makeSimpleGraph();
-[nodes2, edges2] = grRemoveNodes(nodes, edges, [1 6]);
+[nodes2, edges2] = matGeom.graphs.grRemoveNodes(nodes, edges, [1 6]);
 testCase.assertEqual(4, size(nodes2, 1));
 testCase.assertEqual(3, size(edges2, 1));
 

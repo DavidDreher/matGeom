@@ -19,16 +19,16 @@ test_suite = functiontests(localfunctions);
 
 function testCreateCentered(testCase) %#ok<*DEFNU>
 
-trans = createRotation(0);
+trans = matGeom.geom2d.createRotation(0);
 testCase.assertEqual(trans, [1 0 0;0 1 0;0 0 1], 'AbsTol', .01);
 
-trans = createRotation(pi/2);
+trans = matGeom.geom2d.createRotation(pi/2);
 testCase.assertEqual(trans, [0 -1 0; 1 0 0; 0 0 1], 'AbsTol', .01);
 
-trans = createRotation(pi);
+trans = matGeom.geom2d.createRotation(pi);
 testCase.assertEqual(trans, [-1 0 0;0 -1 0;0 0 1], 'AbsTol', .01);
 
-trans = createRotation(3*pi/2);
+trans = matGeom.geom2d.createRotation(3*pi/2);
 testCase.assertEqual(trans, [0 1 0; -1 0 0; 0 0 1], 'AbsTol', .01);
 
 function testCreateShifted(testCase)
@@ -36,10 +36,10 @@ function testCreateShifted(testCase)
 p0 = [3 5];
 theta = pi/3;
 
-trans1 = createRotation(p0, theta);
-t1 = createTranslation(-p0);
-rot = createRotation(theta);
-t2 = createTranslation(p0);
+trans1 = matGeom.geom2d.createRotation(p0, theta);
+t1 = matGeom.geom2d.createTranslation(-p0);
+rot = matGeom.geom2d.createRotation(theta);
+t2 = matGeom.geom2d.createTranslation(p0);
 trans2 = t2*rot*t1;
 
 testCase.assertEqual(trans1, trans2, 'AbsTol', .01);

@@ -18,24 +18,24 @@ test_suite = functiontests(localfunctions);
 function test_random(testCase)
 A=-1+2.*rand(1,3);
 B=-2+4.*rand(1,3);
-ROT = createRotationVector3d(A,B);
-C = transformVector3d(A,ROT);
-testCase.assertEqual(normalizeVector3d(B),normalizeVector3d(C), 'AbsTol', 1e-14);
-testCase.assertEqual(vectorNorm3d(A),vectorNorm3d(C), 'AbsTol', 1e-14)
+ROT = matGeom.geom3d.createRotationVector3d(A,B);
+C = matGeom.geom3d.transformVector3d(A,ROT);
+testCase.assertEqual(matGeom.geom3d.normalizeVector3d(B),matGeom.geom3d.normalizeVector3d(C), 'AbsTol', 1e-14);
+testCase.assertEqual(matGeom.geom3d.vectorNorm3d(A),matGeom.geom3d.vectorNorm3d(C), 'AbsTol', 1e-14)
 
 function test_parallel(testCase)
 A=-1+2.*rand(1,3);
 B=A*2;
-ROT = createRotationVector3d(A,B);
-C = transformVector3d(A,ROT);
-testCase.assertEqual(normalizeVector3d(B),normalizeVector3d(C), 'AbsTol', 1e-14);
-testCase.assertEqual(vectorNorm3d(A),vectorNorm3d(C), 'AbsTol', 1e-14)
+ROT = matGeom.geom3d.createRotationVector3d(A,B);
+C = matGeom.geom3d.transformVector3d(A,ROT);
+testCase.assertEqual(matGeom.geom3d.normalizeVector3d(B),matGeom.geom3d.normalizeVector3d(C), 'AbsTol', 1e-14);
+testCase.assertEqual(matGeom.geom3d.vectorNorm3d(A),matGeom.geom3d.vectorNorm3d(C), 'AbsTol', 1e-14)
 
 function test_antiparallel(testCase)
 A=-1+2.*rand(1,3);
 B=A*-3;
-ROT = createRotationVector3d(A,B);
-C = transformVector3d(A,ROT);
-testCase.assertEqual(normalizeVector3d(B),normalizeVector3d(C), 'AbsTol', 1e-14);
-testCase.assertEqual(vectorNorm3d(A),vectorNorm3d(C), 'AbsTol', 1e-14)
+ROT = matGeom.geom3d.createRotationVector3d(A,B);
+C = matGeom.geom3d.transformVector3d(A,ROT);
+testCase.assertEqual(matGeom.geom3d.normalizeVector3d(B),matGeom.geom3d.normalizeVector3d(C), 'AbsTol', 1e-14);
+testCase.assertEqual(matGeom.geom3d.vectorNorm3d(A),matGeom.geom3d.vectorNorm3d(C), 'AbsTol', 1e-14)
 

@@ -28,14 +28,14 @@ z0 = 40+30;
 origin = [x0 y0 z0];
     
 % create a cube
-[v, f] = createCube();
-v = transformPoint3d(v*60, createTranslation3d([20 30 40]));
-f = triangulateFaces(f);
+[v, f] = matGeom.meshes3d.createCube();
+v = matGeom.geom3d.transformPoint3d(v*60, matGeom.geom3d.createTranslation3d([20 30 40]));
+f = matGeom.meshes3d.triangulateFaces(f);
 
 
 % test with horizontal line
 lineOx = [origin 1 0 0];
-pts = intersectLineMesh3d(lineOx, v, f);
+pts = matGeom.meshes3d.intersectLineMesh3d(lineOx, v, f);
 testCase.assertEqual(2, size(pts, 1));
 
 % should contains extreme points
@@ -47,7 +47,7 @@ testCase.assertTrue(ismember(p2, pts, 'rows'));
 
 % test with line in y direction
 lineOy = [origin 0 1 0];
-pts = intersectLineMesh3d(lineOy, v, f);
+pts = matGeom.meshes3d.intersectLineMesh3d(lineOy, v, f);
 testCase.assertEqual(2, size(pts, 1));
 
 % should contains extreme points
@@ -59,7 +59,7 @@ testCase.assertTrue(ismember(p2, pts, 'rows'));
 
 % test with line in z direction
 lineOz = [origin 0 0 1];
-pts = intersectLineMesh3d(lineOz, v, f);
+pts = matGeom.meshes3d.intersectLineMesh3d(lineOz, v, f);
 testCase.assertEqual(2, size(pts, 1));
 
 % should contains extreme points

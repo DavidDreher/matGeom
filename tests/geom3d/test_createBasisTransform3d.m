@@ -28,7 +28,7 @@ basis2 = [p2 1 0 0 0 1 0];
 dp = p1-p2;
 exp = [eye(3) dp' ; 0 0 0 1];
 
-trans = createBasisTransform3d(basis1, basis2);
+trans = matGeom.geom3d.createBasisTransform3d(basis1, basis2);
 testCase.assertEqual(exp, trans, 'AbsTol', .01);
 
 
@@ -39,7 +39,7 @@ function test_TransformPointTranslation(testCase) %#ok<*DEFNU>
 basis1 = [0 0 0     1 0 0  0 1 0];
 basis2 = [10 20 30  1 0 0  0 1 0];
 
-trans = createBasisTransform3d(basis1, basis2);
+trans = matGeom.geom3d.createBasisTransform3d(basis1, basis2);
 
 % pt1 = [0 0 0];
 % pt1T = transformPoint3d(pt1, trans);
@@ -47,7 +47,7 @@ trans = createBasisTransform3d(basis1, basis2);
 % testCase.assertEqual(exp1, pt1T, 'AbsTol', .01);
 
 pt2 = [10 20 30];
-pt2T = transformPoint3d(pt2, trans);
+pt2T = matGeom.geom3d.transformPoint3d(pt2, trans);
 exp2 = [0 0 0];
 testCase.assertEqual(exp2, pt2T, 'AbsTol', .01);
 
@@ -61,7 +61,7 @@ p1 = [3 4 5];
 basis1 = [p1  1 0 0   0 1 0];
 basis2 = [p1  0 1 0  -1 0 0];
 
-trans = createBasisTransform3d(basis1, basis2);
+trans = matGeom.geom3d.createBasisTransform3d(basis1, basis2);
 
 % restrict the test to the linear part
 exp = [0 1 0; -1 0 0; 0 0 1];
@@ -77,10 +77,10 @@ basis1 = [10 10 10   1 0 0   0 1 0];
 % translation and permutation
 basis2 = [0 0 0   0 1 0   0 0 1];
 
-trans = createBasisTransform3d(basis1, basis2);
+trans = matGeom.geom3d.createBasisTransform3d(basis1, basis2);
 
 pt1 = [0 0 0];
-pt1T = transformPoint3d(pt1, trans);
+pt1T = matGeom.geom3d.transformPoint3d(pt1, trans);
 
 exp1 = [10 10 10];
 testCase.assertEqual(exp1, pt1T, 'AbsTol', .01);

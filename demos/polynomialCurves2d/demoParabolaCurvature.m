@@ -24,14 +24,14 @@ c2 = [0 0 .5];
 t = linspace(-1, 3, 100)';
 
 % approximation of the curve
-curve = polynomialCurvePoint(t, c1, c2);
+curve = matGeom.polynomialCurves2d.polynomialCurvePoint(t, c1, c2);
 
 % prepare plot
 figure(1); clf;
 hold on;
 
 % draw curve
-drawPolyline(curve, 'linewidth', 2);
+matGeom.polygons2d.drawPolyline(curve, 'linewidth', 2);
 
 % format axis
 axis equal;
@@ -44,23 +44,23 @@ axis([-2 3 0 5]);
 pos = .5;
 
 % point, derivative and  curvature at chosen point
-point = polynomialCurvePoint(pos, c1, c2);
-deriv = polynomialCurveDerivative(pos, c1, c2);
-kappa = polynomialCurveCurvature(pos, c1, c2);
+point = matGeom.polynomialCurves2d.polynomialCurvePoint(pos, c1, c2);
+deriv = matGeom.polynomialCurves2d.polynomialCurveDerivative(pos, c1, c2);
+kappa = matGeom.polynomialCurves2d.polynomialCurveCurvature(pos, c1, c2);
 
 % radius is the inverse of the curvature
 radius = 1./kappa;
 
 % tangent and normal lines
 tangent = [point deriv];
-normal = orthogonalLine(tangent, point);
+normal = matGeom.geom2d.orthogonalLine(tangent, point);
 
 % osculating circle
-center = pointOnLine(normal, radius);
+center = matGeom.geom2d.pointOnLine(normal, radius);
 circle = [center radius];
 
 % display tangent line, normal, and osculating circle
-drawPoint(point, 'color', 'k');
-drawLine(tangent, 'color', 'k');
-drawLine(normal, 'color', 'k');
-drawCircle(circle, 'color', 'k');
+matGeom.geom2d.drawPoint(point, 'color', 'k');
+matGeom.geom2d.drawLine(tangent, 'color', 'k');
+matGeom.geom2d.drawLine(normal, 'color', 'k');
+matGeom.geom2d.drawCircle(circle, 'color', 'k');

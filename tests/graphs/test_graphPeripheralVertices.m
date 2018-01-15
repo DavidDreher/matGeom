@@ -21,7 +21,7 @@ test_suite = functiontests(localfunctions);
 function testGraph02(testCase) %#ok<*DEFNU>
 
 [nodes, edges] = createTestGraph02;
-verts = graphPeripheralVertices(nodes, edges);
+verts = matGeom.graphs.graphPeripheralVertices(nodes, edges);
 
 exp = [1;2;11;12];
 testCase.assertEqual(exp, verts);
